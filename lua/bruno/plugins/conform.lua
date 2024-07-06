@@ -19,6 +19,8 @@ return {
           python = { 'autopep8' },
 
           gdscript = { 'gdformat' },
+
+          markdown = { 'markdownlint' },
         },
 
         format_on_save = {
