@@ -1,4 +1,4 @@
-# bruno's nvimrc
+# Bruno's nvimrc
 
 my personal neovim config. This is a rewrite
 from my [old config](https://github.com/brunobmello25/skeleton.nvim),
