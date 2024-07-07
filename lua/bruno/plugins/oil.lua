@@ -14,5 +14,8 @@ return {
 
     vim.keymap.set('n', '-', '<cmd>Oil<CR>', { desc = 'Open oil in parent directory' })
   end,
-  dependencies = { 'nvim-tree/nvim-web-devicons' },
+  dependencies = {
+    'nvim-tree/nvim-web-devicons',
+    'antosha417/nvim-lsp-file-operations',
+  },
 }
