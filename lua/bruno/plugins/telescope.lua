@@ -88,5 +88,50 @@ return {
       vim.keymap.set('n', '<leader>fk', builtin.keymaps, { desc = 'Find keymaps' })
     end,
   },
+
+  {
+    'AckslD/nvim-neoclip.lua',
+    dependencies = {
+      { 'nvim-telescope/telescope.nvim' },
+    },
+    config = function()
+      require('neoclip').setup {
+        keys = {
+          telescope = {
+            i = {
+              select = '<cr>',
+              paste = false,
+              paste_behind = false,
+              replay = false, -- replay a macro
+              delete = '<c-d>', -- delete an entry
+              custom = {},
+            },
+            n = {
+              select = '<cr>',
+              paste = false,
+              --- It is possible to map to more than one key.
+              -- paste = { 'p', '<c-p>' },
+              paste_behind = false,
+              replay = false,
+              delete = 'd',
+              custom = {},
+            },
+          },
+        },
+      }
+
+      vim.keymap.set('n', '<leader>fy', "<cmd>lua require('telescope').extensions.neoclip.neoclip()<cr>", { desc = 'List yanked items' })
+    end,
+  },
+
+  {
+    'folke/todo-comments.nvim',
+    event = 'VimEnter',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    config = function()
+      require('todo-comments').setup {}
+      vim.keymap.set('n', '<leader>ft', '<cmd>TodoTelescope<CR>', { desc = 'Search for TODOs' })
+    end,
+  },
 }
 -- vim: ts=2 sts=2 sw=2 et

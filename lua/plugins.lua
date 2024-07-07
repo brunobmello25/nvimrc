@@ -16,7 +16,6 @@ require('lazy').setup({
   require 'bruno/plugins/cmp',
   require 'bruno/plugins/tokyonight',
   require 'bruno/plugins/lualine',
-  require 'bruno/plugins/todo-comments',
   require 'bruno/plugins/mini',
   require 'bruno/plugins/treesitter',
   require 'bruno/plugins/harpoon',
