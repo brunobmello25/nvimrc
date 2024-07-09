@@ -1,0 +1,23 @@
+local commands_group = vim.api.nvim_create_augroup('CustomCommandsGroup', { clear = true })
+
+-- TODO: auto italicize text in plaintex
+-- vim.api.nvim_create_autocmd('FileType', {
+--   group = commands_group,
+--   pattern = 'plaintex',
+--   callback = function()
+--     print 'set'
+--     vim.keymap.set('v', '<C-i>', function()
+--       vim.cmd 'normal! d'
+--       vim.cmd 'normal! i\\textit{'
+--       vim.cmd 'normal! <Esc>p'
+--
+--       -- local s_start = vim.fn.getpos("'<")[2] - 1
+--       -- local s_end = vim.fn.getpos("'>")[2]
+--       --
+--       -- local line = vim.api.nvim_buf_get_lines(0, s_start, s_end, false)[1]
+--       --
+--       -- local new_line = line:sub(1, s_start) .. '\\textit{' .. line:sub(s_start + 1, s_end) .. '}' .. line:sub(s_end + 1)
+--       -- vim.api.nvim_buf_set_lines(0, s_start, s_end, false, { new_line })
+--     end, { buffer = 0, desc = 'Insert a tab character' })
+--   end,
+-- })
