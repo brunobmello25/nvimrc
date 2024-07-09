@@ -10,8 +10,7 @@ require('lazy').setup({
   { 'kevinhwang91/nvim-bqf', dependencies = { 'nvim-treesitter/nvim-treesitter' } },
 
   require 'bruno/plugins/flash',
-  require 'bruno/plugins/gitsigns',
-  require 'bruno/plugins/fugitive',
+  require 'bruno/plugins/git',
   require 'bruno/plugins/telescope',
   require 'bruno/plugins/lspconfig',
   require 'bruno/plugins/conform',
@@ -27,6 +26,7 @@ require('lazy').setup({
   require 'bruno/plugins/smartsplits',
   require 'bruno/plugins/oil',
   require 'bruno/plugins/copilot',
+  require 'bruno/plugins/zenmode',
   -- require 'bruno/plugins/neo-tree',
   -- require 'bruno/plugins/indent_line',
 }, {
