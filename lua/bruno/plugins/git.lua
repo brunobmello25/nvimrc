@@ -10,11 +10,11 @@ return {
       vim.api.nvim_create_user_command('GBT', 'GitBlameToggle', {})
     end,
   },
-  -- {
-  --   'lewis6991/gitsigns.nvim',
-  --   dependencies = { 'nvim-lua/plenary.nvim' },
-  --   opts = {},
-  -- },
+  {
+    'lewis6991/gitsigns.nvim',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    opts = {},
+  },
   {
     'tpope/vim-fugitive',
     config = function()
