@@ -7,6 +7,8 @@ require('lazy').setup({
   -- clear search highlight after cursor movement
   { 'romainl/vim-cool' },
 
+  { 'kevinhwang91/nvim-bqf', dependencies = { 'nvim-treesitter/nvim-treesitter' } },
+
   require 'bruno/plugins/flash',
   require 'bruno/plugins/gitsigns',
   require 'bruno/plugins/fugitive',
