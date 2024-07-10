@@ -8,7 +8,11 @@ return {
       vim.o.foldlevel = 99
       vim.o.foldlevelstart = 99
       vim.o.foldenable = false
-      vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
+      if vim.g.have_nerd_font then
+        vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
+      else
+        vim.o.fillchars = [[eob: ,fold: ,foldopen:▼,foldsep: ,foldclose:⏵]]
+      end
 
       vim.keymap.set('n', 'zR', require('ufo').openAllFolds, { desc = 'Open all folds' })
       vim.keymap.set('n', 'zM', require('ufo').closeAllFolds, { desc = 'Close all folds' })
