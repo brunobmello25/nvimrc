@@ -151,6 +151,7 @@ return {
         gopls = {},
         tsserver = {},
         pyright = {},
+        texlab = {},
         -- clangd = {},
         -- pyright = {},
         -- rust_analyzer = {},
