@@ -1,0 +1,57 @@
+return {
+  -- {
+  --   'kevinhwang91/nvim-ufo',
+  --   dependencies = { 'kevinhwang91/promise-async' },
+  --   lazy = false,
+  --   config = function()
+  --     vim.o.foldcolumn = '1'
+  --     vim.o.foldlevel = 99
+  --     vim.o.foldlevelstart = 99
+  --     vim.o.foldenable = false
+  --     if vim.g.have_nerd_font then
+  --       vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
+  --     else
+  --       vim.o.fillchars = [[eob: ,fold: ,foldopen:▼,foldsep: ,foldclose:⏵]]
+  --     end
+  --
+  --     vim.keymap.set('n', 'zR', require('ufo').openAllFolds, { desc = 'Open all folds' })
+  --     vim.keymap.set('n', 'zM', require('ufo').closeAllFolds, { desc = 'Close all folds' })
+  --     vim.keymap.set('n', 'zK', function()
+  --       local winid = require('ufo').peekFoldedLinesUnderCursor()
+  --       if not winid then
+  --         vim.lsp.buf.hover()
+  --       end
+  --     end, { desc = 'Peek fold' })
+  --
+  --     require('ufo').setup {
+  --       provider_selector = function()
+  --         -- return { 'lsp', 'indent' }
+  --         return { 'treesitter', 'indent' }
+  --       end,
+  --     }
+  --   end,
+  -- },
+  --
+  -- {
+  --   'luukvbaal/statuscol.nvim',
+  --   config = function()
+  --     local builtin = require 'statuscol.builtin'
+  --     require('statuscol').setup {
+  --       -- configuration goes here, for example:
+  --       relculright = true,
+  --       segments = {
+  --         { text = { builtin.foldfunc }, click = 'v:lua.ScFa' },
+  --         -- {
+  --         --   sign = { namespace = { 'diagnostic/signs' }, maxwidth = 2, auto = true },
+  --         --   click = 'v:lua.ScSa',
+  --         -- },
+  --         { text = { builtin.lnumfunc }, click = 'v:lua.ScLa' },
+  --         -- {
+  --         --   sign = { name = { '.*' }, maxwidth = 2, colwidth = 1, auto = true, wrap = true },
+  --         --   click = 'v:lua.ScSa',
+  --         -- },
+  --       },
+  --     }
+  --   end,
+  -- },
+}
