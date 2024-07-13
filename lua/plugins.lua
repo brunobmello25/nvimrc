@@ -15,7 +15,7 @@ require('lazy').setup({
   require 'bruno/plugins/lspconfig',
   require 'bruno/plugins/conform',
   require 'bruno/plugins/cmp',
-  require 'bruno/plugins/tokyonight',
+  require 'bruno.plugins.colors',
   require 'bruno/plugins/lualine',
   require 'bruno/plugins/mini',
   require 'bruno/plugins/treesitter',
