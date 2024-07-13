@@ -12,6 +12,12 @@ return {
       lint.linters_by_ft['typescriptreact'] = { 'eslint' }
       lint.linters_by_ft['javascriptreact'] = { 'eslint' }
 
+      -- TODO: enable vale linter for text files (what does it do?)
+      local disabled = { 'text' }
+      for _, linter in ipairs(disabled) do
+        lint.linters_by_ft[linter] = nil
+      end
+
       -- To allow other plugins to add linters to require('lint').linters_by_ft,
       -- instead set linters_by_ft like this:
       -- lint.linters_by_ft = lint.linters_by_ft or {}
