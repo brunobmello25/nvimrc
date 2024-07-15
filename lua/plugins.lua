@@ -27,7 +27,6 @@ require('lazy').setup({
   require 'bruno/plugins/oil',
   require 'bruno/plugins/copilot',
   require 'bruno/plugins/zenmode',
-  require 'bruno/plugins/folding',
   require 'bruno/plugins/chatgpt',
   -- require 'bruno/plugins/neo-tree',
   -- require 'bruno/plugins/indent_line',

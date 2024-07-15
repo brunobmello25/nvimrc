@@ -22,6 +22,12 @@ return {
       },
       indent = { enable = true, disable = { 'ruby' } },
     },
+    init = function()
+      vim.opt.foldenable = false
+      vim.opt.foldlevel = 99
+      vim.opt.foldmethod = 'expr'
+      vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
+    end,
     config = function(_, opts)
       -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
 
@@ -37,6 +43,11 @@ return {
       --    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
       --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
     end,
+  },
+
+  {
+    'nvim-treesitter/playground',
+    dependencies = { 'nvim-treesitter/nvim-treesitter' },
   },
 }
 -- vim: ts=2 sts=2 sw=2 et
