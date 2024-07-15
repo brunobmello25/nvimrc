@@ -46,3 +46,5 @@ vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'Scroll up' })
 -- reselect previous visual selection after indenting
 vim.keymap.set('v', '>', '>gv', { desc = 'Indent right' })
 vim.keymap.set('v', '<', '<gv', { desc = 'Indent left' })
+
+vim.keymap.set('n', '<leader>m', "'", { desc = 'Mark navigation' })
