@@ -39,3 +39,9 @@ vim.opt.scrolloff = 10
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
+
+-- code folding. TODO: make better folding
+vim.opt.foldenable = false
+vim.opt.foldlevel = 99
+vim.opt.fillchars = 'fold: '
+vim.opt.foldmethod = 'indent'
