@@ -28,7 +28,6 @@ require('lazy').setup({
   require 'plugins.copilot',
   require 'plugins.zenmode',
   require 'plugins.chatgpt',
-  -- require 'plugins.indent_line',
 }, {
   change_detection = {
     notify = false,
