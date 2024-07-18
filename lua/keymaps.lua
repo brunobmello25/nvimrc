@@ -48,3 +48,6 @@ vim.keymap.set('v', '>', '>gv', { desc = 'Indent right' })
 vim.keymap.set('v', '<', '<gv', { desc = 'Indent left' })
 
 vim.keymap.set('n', '<leader>m', "'", { desc = 'Mark navigation' })
+
+-- resource file
+vim.keymap.set('n', '<leader>x', '<cmd>luafile %<CR>', { desc = 'Resource file' })
