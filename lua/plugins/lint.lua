@@ -12,7 +12,6 @@ return {
       lint.linters_by_ft['typescriptreact'] = { 'eslint' }
       lint.linters_by_ft['javascriptreact'] = { 'eslint' }
 
-      -- TODO: enable vale linter for text files (what does it do?)
       local disabled = { 'text' }
       for _, linter in ipairs(disabled) do
         lint.linters_by_ft[linter] = nil
