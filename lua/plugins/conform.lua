@@ -1,34 +1,32 @@
 return {
   {
     'stevearc/conform.nvim',
-    config = function()
-      require('conform').setup {
-        formatters_by_ft = {
-          lua = { 'stylua' },
+    opts = {
+      formatters_by_ft = {
+        lua = { 'stylua' },
 
-          javascript = { { 'prettierd', 'prettier' } },
-          typescript = { { 'prettier', 'prettierd' } },
-          typescriptreact = { { 'prettier', 'prettierd' } },
-          javascriptreact = { { 'prettier', 'prettierd' } },
-          yaml = { 'prettier', 'prettierd' },
-          html = { 'prettier', 'prettierd' },
-          css = { 'prettier', 'prettierd' },
+        javascript = { { 'prettierd', 'prettier' } },
+        typescript = { { 'prettier', 'prettierd' } },
+        typescriptreact = { { 'prettier', 'prettierd' } },
+        javascriptreact = { { 'prettier', 'prettierd' } },
+        yaml = { 'prettier', 'prettierd' },
+        html = { 'prettier', 'prettierd' },
+        css = { 'prettier', 'prettierd' },
 
-          json = { 'jq' },
+        json = { 'jq' },
 
-          python = { 'autopep8' },
+        python = { 'autopep8' },
 
-          gdscript = { 'gdformat' },
+        gdscript = { 'gdformat' },
 
-          markdown = { 'markdownlint' },
+        markdown = { 'markdownlint' },
 
-          plaintex = { 'latexindent' },
-        },
+        plaintex = { 'latexindent' },
+      },
 
-        format_on_save = {
-          lsp_fallback = true,
-        },
-      }
-    end,
+      format_on_save = {
+        lsp_fallback = true,
+      },
+    },
   },
 }
