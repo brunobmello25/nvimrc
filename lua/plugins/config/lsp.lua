@@ -1,3 +1,11 @@
+vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {
+  border = 'rounded',
+})
+vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = 'rounded' })
+vim.diagnostic.config {
+  float = { border = 'rounded' },
+}
+
 local on_attach = function(client, bufnr)
   local map = function(keys, func, desc)
     vim.keymap.set('n', keys, func, { buffer = bufnr, desc = 'LSP: ' .. desc })
@@ -17,14 +25,6 @@ local on_attach = function(client, bufnr)
       vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled {})
     end, '[T]oggle Inlay [H]ints')
   end
-
-  vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {
-    border = 'rounded',
-  })
-  vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = 'rounded' })
-  vim.diagnostic.config {
-    float = { border = 'rounded' },
-  }
 end
 
 vim.api.nvim_create_autocmd('LspAttach', {
