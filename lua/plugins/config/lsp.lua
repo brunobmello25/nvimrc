@@ -13,7 +13,7 @@ local on_attach = function(client, bufnr)
 
   map('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
   map('gr', vim.lsp.buf.references, '[G]oto [R]eferences')
-  map('gI', vim.lsp.buf.implementation, '[G]oto [I]mplementation')
+  map('gi', vim.lsp.buf.implementation, '[G]oto [I]mplementation')
   map('gT', vim.lsp.buf.type_definition, 'Type [D]efinition')
   map('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
   map('<leader>.', vim.lsp.buf.code_action, '[C]ode [A]ction')
