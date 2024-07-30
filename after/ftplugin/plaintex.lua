@@ -1,13 +1,13 @@
 local function italicize()
   vim.cmd 'normal! d'
-  vim.cmd 'normal! a\\textit{'
+  vim.cmd 'normal! i \\textit{'
   vim.cmd 'normal! p'
   vim.cmd 'normal! li}'
 end
 
 local function bold()
   vim.cmd 'normal! d'
-  vim.cmd 'normal! a\\textbf{'
+  vim.cmd 'normal! i \\textbf{'
   vim.cmd 'normal! p'
   vim.cmd 'normal! li}'
 end
