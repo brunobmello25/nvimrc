@@ -14,3 +14,7 @@ end
 
 vim.keymap.set('v', '<C-i>', italicize, { buffer = 0, desc = 'Italicize selected text' })
 vim.keymap.set('v', '<C-b>', bold, { buffer = 0, desc = 'Bold selected text' })
+
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.shiftwidth = 4
