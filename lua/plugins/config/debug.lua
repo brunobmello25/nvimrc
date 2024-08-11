@@ -11,8 +11,14 @@ require('mason-nvim-dap').setup {
   },
 }
 
--- Basic debugging keymaps, feel free to change to your liking!
-vim.keymap.set('n', '<F5>', dap.continue, { desc = 'Debug: Start/Continue' })
+vim.keymap.set('n', '<F5>', function()
+  if vim.fn.filereadable '.vscode/launch.json' == 1 then
+    require('dap.ext.vscode').load_launchjs()
+  end
+
+  require('dap').continue()
+end, { desc = 'DAP continue' })
+
 vim.keymap.set('n', '<F10>', dap.step_into, { desc = 'Debug: Step Into' })
 vim.keymap.set('n', '<F11>', dap.step_over, { desc = 'Debug: Step Over' })
 vim.keymap.set('n', '<F12>', dap.step_out, { desc = 'Debug: Step Out' })
