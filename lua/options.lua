@@ -40,4 +40,8 @@ vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 
+-- prevent lines ending with ^M
 vim.opt.fileformat = 'unix'
+
+-- set nowrap
+vim.opt.wrap = false
