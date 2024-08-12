@@ -1,16 +1,6 @@
 local dap = require 'dap'
 local dapui = require 'dapui'
 
-require('mason-nvim-dap').setup {
-  automatic_installation = true,
-
-  handlers = {},
-
-  ensure_installed = {
-    'delve',
-  },
-}
-
 vim.keymap.set('n', '<F5>', function()
   if vim.fn.filereadable '.vscode/launch.json' == 1 then
     require('dap.ext.vscode').load_launchjs()
@@ -34,36 +24,3 @@ vim.keymap.set('n', '<leader>B', function()
 end, { desc = 'Debug: Set Breakpoint' })
 
 vim.keymap.set('n', '<leader>de', '<cmd>lua require"dapui".eval()<CR>', { desc = 'DAP eval' })
-
-dapui.setup()
-
--- Toggle to see last session result. Without this, you can't see session output in case of unhandled exception.
--- vim.keymap.set('n', '<F7>', dapui.toggle, { desc = 'Debug: See last session result.' })
-
-dap.listeners.after.event_initialized['dapui_config'] = dapui.open
--- dap.listeners.before.event_terminated['dapui_config'] = dapui.close
--- dap.listeners.before.event_exited['dapui_config'] = dapui.close
-
--- Install golang specific config
-require('dap-go').setup {
-  delve = {
-    -- On Windows delve must be run attached or it crashes.
-    -- See https://github.com/leoluz/nvim-dap-go/blob/main/README.md#configuring
-    detached = vim.fn.has 'win32' == 0,
-  },
-}
-
-dap.adapters.godot = {
-  type = 'server',
-  host = '127.0.0.1',
-  port = 6006,
-}
-
-dap.configurations.gdscript = {
-  {
-    type = 'godot',
-    request = 'launch',
-    name = 'launch main scene',
-    project = '${workspaceFolder}',
-  },
-}
