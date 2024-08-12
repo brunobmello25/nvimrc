@@ -28,6 +28,7 @@ require('lazy').setup({
   require 'plugins.copilot',
   require 'plugins.zenmode',
   require 'plugins.chatgpt',
+  require 'plugins.database',
 }, {
   change_detection = {
     notify = false,
