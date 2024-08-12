@@ -18,13 +18,9 @@ You can use `:Telescope keymaps` to see all the keymaps, but the most important 
 - `<leader>rn` rename symbol
 - `<leader>.` code actions
 - `-` open [oil.nvim](https://github.com/stevearc/oil.nvim) (my file manager of choice)
-- `<leader>ha` to harpoon a file
-- `<leader>hh` to show harpoon menu
-- `<leader>1` to `<leader>9` to switch between harpoon files
-
-> What is harpoon?
-
-[This](https://github.com/ThePrimeagen/harpoon)
+- `<leader>ha` to [harpoon](https://github.com/ThePrimeagen/harpoon) a file
+- `<leader>hh` to show [harpoon](https://github.com/ThePrimeagen/harpoon) menu
+- `<leader>1` to `<leader>9` to switch between [harpoon](https://github.com/ThePrimeagen/harpoon) files
 
 # Requirements
 
