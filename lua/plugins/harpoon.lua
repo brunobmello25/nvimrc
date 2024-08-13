@@ -1,42 +1,22 @@
 return {
   {
-    'ThePrimeagen/harpoon',
-    dependencies = { 'nvim-lua/plenary.nvim' },
-    branch = 'harpoon2',
+    'cbochs/grapple.nvim',
+    dependencies = {
+      { 'nvim-tree/nvim-web-devicons', lazy = true },
+    },
     config = function()
-      local harpoon = require 'harpoon'
+      vim.keymap.set('n', '<leader>ha', require('grapple').tag)
+      vim.keymap.set('n', '<leader>hh', require('grapple').toggle_tags)
 
-      harpoon:setup {
-        settings = {
-          save_on_toggle = true,
-        },
-      }
-
-      vim.keymap.set('n', '<leader>ha', function()
-        harpoon:list():add()
-      end, { desc = 'Add current file to harpoon' })
-
-      vim.keymap.set('n', '<leader>hh', function()
-        harpoon.ui:toggle_quick_menu(harpoon:list())
-      end, {
-        desc = 'Toggle harpoon quick menu',
-      })
-
-      local function set_navigation(number)
-        vim.keymap.set('n', '<leader>' .. number, function()
-          harpoon:list():select(number)
-        end, { desc = 'Go to harpoon ' .. number })
-      end
-
-      set_navigation(1)
-      set_navigation(2)
-      set_navigation(3)
-      set_navigation(4)
-      set_navigation(5)
-      set_navigation(6)
-      set_navigation(7)
-      set_navigation(8)
-      set_navigation(9)
+      vim.keymap.set('n', '<leader>1', '<cmd>Grapple select index=1<cr>')
+      vim.keymap.set('n', '<leader>2', '<cmd>Grapple select index=2<cr>')
+      vim.keymap.set('n', '<leader>3', '<cmd>Grapple select index=3<cr>')
+      vim.keymap.set('n', '<leader>4', '<cmd>Grapple select index=4<cr>')
+      vim.keymap.set('n', '<leader>5', '<cmd>Grapple select index=5<cr>')
+      vim.keymap.set('n', '<leader>6', '<cmd>Grapple select index=6<cr>')
+      vim.keymap.set('n', '<leader>7', '<cmd>Grapple select index=7<cr>')
+      vim.keymap.set('n', '<leader>8', '<cmd>Grapple select index=8<cr>')
+      vim.keymap.set('n', '<leader>9', '<cmd>Grapple select index=9<cr>')
     end,
   },
 }
