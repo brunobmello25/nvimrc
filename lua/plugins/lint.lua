@@ -10,7 +10,7 @@ return {
       lint.linters_by_ft['typescriptreact'] = { 'eslint' }
       lint.linters_by_ft['javascriptreact'] = { 'eslint' }
 
-      local disabled = { 'terraform', 'ruby', 'rst', 'markdown', 'json', 'janet', 'inko', 'dockerfile', 'clojure', 'text', 'markdown' }
+      local disabled = { 'terraform', 'ruby', 'rst', 'markdown', 'janet', 'inko', 'dockerfile', 'clojure', 'text', 'markdown' }
       for _, linter in ipairs(disabled) do
         lint.linters_by_ft[linter] = nil
       end
