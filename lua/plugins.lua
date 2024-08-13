@@ -27,7 +27,7 @@ require('lazy').setup({
   require 'plugins.oil',
   require 'plugins.copilot',
   require 'plugins.zenmode',
-  require 'plugins.chatgpt',
+  require 'plugins.gpt',
   require 'plugins.database',
 }, {
   change_detection = {
