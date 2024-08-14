@@ -66,9 +66,4 @@ require('mason-lspconfig').setup {
   },
 }
 
-require('lspconfig').gdscript.setup {
-  cmd = { 'ncat', 'localhost', os.getenv 'GDScript_Port' or '6005' },
-  on_attach = function(client, bufnr)
-    on_attach(client, bufnr)
-  end,
-}
+require 'plugins.config.lsp.languages.gdscript'
