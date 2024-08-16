@@ -29,6 +29,7 @@ require('lazy').setup({
   require 'plugins.zenmode',
   require 'plugins.gpt',
   require 'plugins.database',
+  require 'plugins.gitgraph',
 }, {
   change_detection = {
     notify = false,

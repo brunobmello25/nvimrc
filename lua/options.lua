@@ -45,3 +45,5 @@ vim.opt.fileformat = 'unix'
 
 -- set nowrap
 vim.opt.wrap = false
+
+vim.g.tex_flavor = 'latex'
