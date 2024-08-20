@@ -19,6 +19,9 @@ local opts = {
   },
 }
 
+---@diagnostic disable-next-line: redundant-parameter
+require('nvim-treesitter').setup(opts)
+
 -- Setup Treesitter with the options defined above
 require('nvim-treesitter.install').prefer_git = true
 
