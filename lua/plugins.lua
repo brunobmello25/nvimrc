@@ -30,6 +30,8 @@ require('lazy').setup({
   require 'plugins.gpt',
   require 'plugins.database',
   require 'plugins.gitgraph',
+
+  { 'mechatroner/rainbow_csv' },
 }, {
   change_detection = {
     notify = false,
