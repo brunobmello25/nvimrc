@@ -1,18 +1,3 @@
-local disabled_filetypes = {
-  'csv',
-  'tsv',
-  'ruby',
-}
-
-local function should_disable_treesitter(filetype)
-  for _, disabled_filetype in ipairs(disabled_filetypes) do
-    if filetype == disabled_filetype then
-      return true
-    end
-  end
-  return false
-end
-
 local opts = {
   ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'vim', 'vimdoc' },
   auto_install = true,
@@ -24,11 +9,12 @@ local opts = {
     },
   },
   highlight = {
-    enable = should_disable_treesitter(vim.bo.filetype),
+    enable = true,
+    disable = { 'csv' },
     additional_vim_regex_highlighting = { 'ruby' },
   },
   indent = {
-    enable = should_disable_treesitter(vim.bo.filetype),
+    enable = true,
     disable = { 'ruby' },
   },
 }
