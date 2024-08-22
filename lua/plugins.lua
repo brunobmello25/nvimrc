@@ -1,37 +1,35 @@
 require('lazy').setup({
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
 
-  -- "gc" to comment visual regions/lines
-  { 'numToStr/Comment.nvim', opts = {} },
+  { 'numToStr/Comment.nvim', opts = {} }, -- "gc" to comment visual regions/lines
 
-  -- clear search highlight after cursor movement
-  { 'romainl/vim-cool' },
+  { 'romainl/vim-cool' }, -- clear search highlight after cursor movement
 
-  { 'kevinhwang91/nvim-bqf', dependencies = { 'nvim-treesitter/nvim-treesitter' } },
+  { 'kevinhwang91/nvim-bqf', dependencies = { 'nvim-treesitter/nvim-treesitter' } }, -- better quickfix window experience (preview, filter items etc)
 
-  require 'plugins.flash',
-  require 'plugins.git',
-  require 'plugins.telescope',
-  require 'plugins.lspconfig',
-  require 'plugins.conform',
-  require 'plugins.cmp',
-  require 'plugins.colors',
-  require 'plugins.lualine',
-  require 'plugins.mini',
+  require 'plugins.flash', -- code navigation with "s" key
+  require 'plugins.git', -- git plugins
+  require 'plugins.telescope', -- fuzzy find files, text, etc
+  require 'plugins.lspconfig', -- lsp stuff
+  require 'plugins.conform', -- formatting config
+  require 'plugins.cmp', -- completion config
+  require 'plugins.colors', -- color theme
+  require 'plugins.lualine', -- status bar
+  require 'plugins.surround', -- change surround objects (quotes, brackets etc)
   require 'plugins.treesitter',
-  require 'plugins.harpoon',
-  require 'plugins.autopairs',
-  require 'plugins.debug',
-  require 'plugins.lint',
-  require 'plugins.smartsplits',
-  require 'plugins.oil',
-  require 'plugins.copilot',
-  require 'plugins.zenmode',
-  require 'plugins.gpt',
-  require 'plugins.database',
-  require 'plugins.gitgraph',
+  require 'plugins.harpoon', -- "favorite" file navigation
+  require 'plugins.autopairs', -- auto write closing brackets, quotes etc
+  require 'plugins.debug', -- debug config
+  require 'plugins.lint', -- lint config
+  require 'plugins.smartsplits', -- better handling of vertical and horizontal splits, and tmux integration
+  require 'plugins.oil', -- my file manager of choice
+  require 'plugins.copilot', -- github copilot
+  require 'plugins.zenmode', -- I use this to be able to maximize a specific buffer
+  require 'plugins.gpt', -- openai api integration
+  require 'plugins.database', -- database config, similar to datagrip
+  require 'plugins.gitgraph', -- git graph
 
-  { 'mechatroner/rainbow_csv' },
+  { 'mechatroner/rainbow_csv' }, -- color csv nodes for better readability
 }, {
   change_detection = {
     notify = false,
