@@ -42,6 +42,8 @@ vim.keymap.set('n', '<leader>tw', '<cmd>set wrap!<CR>', { desc = 'Toggle wrap' }
 -- keep cursor centered when scrolling
 vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'Scroll down' })
 vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'Scroll up' })
+vim.keymap.set('n', 'gg', 'ggzz', { desc = 'Scroll up' })
+vim.keymap.set('n', 'G', 'Gzz', { desc = 'Scroll up' })
 
 -- reselect previous visual selection after indenting
 vim.keymap.set('v', '>', '>gv', { desc = 'Indent right' })
@@ -51,3 +53,7 @@ vim.keymap.set('n', '<leader>m', "'", { desc = 'Mark navigation' })
 
 -- resource file
 vim.keymap.set('n', '<leader>x', '<cmd>luafile %<CR>', { desc = 'Resource file' })
+
+-- prevent { and } from polluting the jump list
+vim.keymap.set('n', '{', ':execute "keepjumps norm! " . v:count1 . "{"<CR>', { desc = 'Move to previous paragraph' })
+vim.keymap.set('n', '}', ':execute "keepjumps norm! " . v:count1 . "}"<CR>', { desc = 'Move to previous paragraph' })
