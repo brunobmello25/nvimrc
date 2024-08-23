@@ -52,5 +52,5 @@ vim.keymap.set('n', '<leader>m', "'", { desc = 'Mark navigation' })
 vim.keymap.set('n', '<leader>x', '<cmd>luafile %<CR>', { desc = 'Resource file' })
 
 -- prevent { and } from polluting the jump list
-vim.keymap.set('n', '{', ':execute "keepjumps norm! " . v:count1 . "{"<CR>', { desc = 'Move to previous paragraph' })
-vim.keymap.set('n', '}', ':execute "keepjumps norm! " . v:count1 . "}"<CR>', { desc = 'Move to previous paragraph' })
+vim.keymap.set('n', '{', '<cmd>silent! execute "keepjumps norm! " . v:count1 . "{"<CR>', { desc = 'Move to previous paragraph' })
+vim.keymap.set('n', '}', '<cmd>silent! execute "keepjumps norm! " . v:count1 . "}"<CR>', { desc = 'Move to previous paragraph' })
