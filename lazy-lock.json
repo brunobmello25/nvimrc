@@ -1,6 +1,6 @@
 {
   "Comment.nvim": { "branch": "master", "commit": "e30b7f2008e52442154b66f7c519bfd2f1e32acb" },
-  "GPTModels.nvim": { "branch": "main", "commit": "087144c103f1c55478c6f66a4732aea2b5650b1e" },
+  "GPTModels.nvim": { "branch": "main", "commit": "45f3decc239e3bfed8e6d7e5a6daf992e9a4e387" },
   "LuaSnip": { "branch": "master", "commit": "ce0a05ab4e2839e1c48d072c5236cce846a387bc" },
   "cmp-nvim-lsp": { "branch": "main", "commit": "39e2eda76828d88b773cc27a3f61d2ad782c922d" },
   "cmp-path": { "branch": "main", "commit": "91ff86cd9c29299a64f968ebb45846c485725f23" },

@@ -8,9 +8,6 @@ vim.keymap.set('n', ']e', function()
   vim.diagnostic.goto_next { severity = vim.diagnostic.severity.ERROR }
 end, { desc = 'Go to next [E]rror message' })
 
-vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' })
-vim.keymap.set('n', '<leader>fd', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
-
 -- quickfix navigation
 vim.keymap.set('n', '[q', '<cmd>cprevious<CR>', { desc = 'Previous quickfix item' })
 vim.keymap.set('n', ']q', '<cmd>cnext<CR>', { desc = 'Next quickfix item' })
