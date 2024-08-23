@@ -9,8 +9,6 @@ require('lazy').setup({
 
   { 'mechatroner/rainbow_csv' }, -- color csv nodes for better readability
 
-  { 'm4xshen/hardtime.nvim', dependencies = { 'MunifTanjim/nui.nvim', 'nvim-lua/plenary.nvim' }, opts = {} }, -- plugin to teach me better vim movements
-
   require 'plugins.flash', -- code navigation with "s" key
   require 'plugins.git', -- git plugins
   require 'plugins.telescope', -- fuzzy find files, text, etc
