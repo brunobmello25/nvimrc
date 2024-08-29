@@ -22,6 +22,7 @@ vim.keymap.set('n', '<C-f>', '<cmd>silent !tmux neww tmux-sessionizer<CR>', { de
 
 -- exit with leader q
 vim.keymap.set('n', '<leader>q', '<cmd>q<CR>', { desc = 'Quit' })
+vim.keymap.set('n', '<leader>Q', '<cmd>tabclose<CR>', { desc = 'Close tab' })
 
 -- shortcut to <C-w>
 vim.keymap.set('n', '<leader>w', '<C-w>', { desc = 'Leader w' })
