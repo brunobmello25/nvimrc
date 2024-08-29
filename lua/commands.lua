@@ -1,1 +1,1 @@
-vim.cmd "command! CopyRelPath call setreg('+', expand('%'))"
+vim.cmd "command! CopyRelPath call setreg('+', expand('%:p:.'))"
