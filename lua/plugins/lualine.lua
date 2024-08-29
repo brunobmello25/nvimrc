@@ -1,12 +1,20 @@
 return {
   {
     'nvim-lualine/lualine.nvim',
-    dependencies = { 'nvim-tree/nvim-web-devicons', lazy = true },
+    dependencies = {
+      { 'nvim-tree/nvim-web-devicons', lazy = true },
+      { 'f-person/git-blame.nvim' },
+    },
     config = function()
       require('lualine').setup {
         sections = {
           lualine_c = {
-            { 'filename', path = 1 },
+            { 'filetype', icon_only = true, separator = '', padding = { left = 1, right = 0 } },
+            {
+              'filename',
+              path = 1,
+              symbols = { modified = '  ', readonly = '', unnamed = '' },
+            },
           },
           lualine_z = {
             { 'grapple' },
