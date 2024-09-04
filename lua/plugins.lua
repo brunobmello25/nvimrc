@@ -21,6 +21,7 @@ require('lazy').setup({
   require 'plugins.treesitter',
   require 'plugins.harpoon', -- "favorite" file navigation
   require 'plugins.autopairs', -- auto write closing brackets, quotes etc
+  require 'plugins.autotags', -- autoclose tags like html, xml etc
   require 'plugins.debug', -- debug config
   require 'plugins.lint', -- lint config
   require 'plugins.smartsplits', -- better handling of vertical and horizontal splits, and tmux integration
