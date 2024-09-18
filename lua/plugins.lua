@@ -1,14 +1,13 @@
 require('lazy').setup({
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
 
-  { 'numToStr/Comment.nvim', opts = {} }, -- "gc" to comment visual regions/lines
-
   { 'romainl/vim-cool' }, -- clear search highlight after cursor movement
 
   { 'kevinhwang91/nvim-bqf', dependencies = { 'nvim-treesitter/nvim-treesitter' } }, -- better quickfix window experience (preview, filter items etc)
 
   { 'mechatroner/rainbow_csv' }, -- color csv nodes for better readability
 
+  require 'plugins.comment', -- "gc" to comment visual regions/lines
   require 'plugins.flash', -- code navigation with "s" key
   require 'plugins.git', -- git plugins
   require 'plugins.telescope', -- fuzzy find files, text, etc
