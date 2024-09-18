@@ -30,6 +30,7 @@ require('lazy').setup({
   require 'plugins.gpt', -- openai api integration
   require 'plugins.database', -- database config, similar to datagrip
   require 'plugins.gitgraph', -- git graph
+  require 'plugins.tailwind', -- tailwind css
 }, {
   change_detection = {
     notify = false,
