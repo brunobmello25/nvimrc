@@ -7,6 +7,8 @@ require('lazy').setup({
 
   { 'mechatroner/rainbow_csv' }, -- color csv nodes for better readability
 
+  { 'tpope/vim-abolish' }, -- maintain case in substitution using :S
+
   require 'plugins.comment', -- "gc" to comment visual regions/lines
   require 'plugins.flash', -- code navigation with "s" key
   require 'plugins.git', -- git plugins
