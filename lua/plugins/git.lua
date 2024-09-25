@@ -22,4 +22,6 @@ return {
     dependencies = { 'nvim-lua/plenary.nvim' },
     opts = {},
   },
+
+  { 'akinsho/git-conflict.nvim', version = '*', config = true },
 }
