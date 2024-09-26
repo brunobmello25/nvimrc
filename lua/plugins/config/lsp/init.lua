@@ -67,3 +67,4 @@ require('mason-lspconfig').setup {
 }
 
 require 'plugins.config.lsp.languages.gdscript'
+require 'plugins.config.lsp.languages.swiprolog'
