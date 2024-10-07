@@ -9,6 +9,7 @@ return {
       lint.linters_by_ft['javascript'] = { 'eslint' }
       lint.linters_by_ft['typescriptreact'] = { 'eslint' }
       lint.linters_by_ft['javascriptreact'] = { 'eslint' }
+      lint.linters_by_ft['yaml'] = { 'yamllint' }
 
       local disabled = { 'terraform', 'ruby', 'rst', 'markdown', 'janet', 'inko', 'dockerfile', 'clojure', 'text', 'markdown' }
       for _, linter in ipairs(disabled) do
