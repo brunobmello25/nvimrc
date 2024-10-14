@@ -33,6 +33,7 @@ require('lazy').setup({
   require 'plugins.database', -- database config, similar to datagrip
   require 'plugins.gitgraph', -- git graph
   require 'plugins.tailwind', -- tailwind css
+  require 'plugins.undotree', -- undo tree
 }, {
   change_detection = {
     notify = false,
