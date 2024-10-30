@@ -10,6 +10,7 @@ return {
       'jay-babu/mason-nvim-dap.nvim',
 
       'leoluz/nvim-dap-go',
+      'mfussenegger/nvim-dap-python',
     },
     config = function()
       require 'plugins.config.debug'
