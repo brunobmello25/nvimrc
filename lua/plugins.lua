@@ -29,7 +29,7 @@ require('lazy').setup({
   require 'plugins.oil', -- my file manager of choice
   require 'plugins.copilot', -- github copilot
   require 'plugins.zenmode', -- I use this to be able to maximize a specific buffer
-  require 'plugins.gpt', -- openai api integration
+  require 'plugins.ai', -- ai plugins
   require 'plugins.database', -- database config, similar to datagrip
   require 'plugins.gitgraph', -- git graph
   require 'plugins.tailwind', -- tailwind css
