@@ -13,12 +13,27 @@ return {
     dependencies = {
       { 'ellisonleao/gruvbox.nvim' },
       { 'folke/tokyonight.nvim' },
+      { 'rose-pine/neovim', name = 'rose-pine' },
+      { 'catppuccin/nvim', name = 'catppuccin' },
+      { 'Mofiqul/dracula.nvim' },
     },
     config = function()
       require('themery').setup {
-        themes = { 'tokyonight', 'gruvbox' },
-        globalAfter = [[lua UpdateLualine()]],
+        themes = {
+          'tokyonight',
+          'gruvbox',
+          'rose-pine',
+          'dracula',
+          'dracula-soft',
+          'catppuccin-frappe',
+          'catppuccin-macchiato',
+          'catppuccin-mocha',
+          'catppuccin-latte',
+        },
+        globalAfter = [[print('hello')]],
       }
+
+      vim.keymap.set('n', '<leader>tt', '<cmd>Themery<CR>')
     end,
   },
 }
