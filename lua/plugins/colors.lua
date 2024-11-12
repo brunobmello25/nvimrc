@@ -1,13 +1,24 @@
+_G.UpdateLualine = function()
+  local themery = require 'themery'
+  local currentTheme = themery.getCurrentTheme()
+
+  require('lualine').setup { options = { theme = currentTheme and currentTheme.name or 'tokyonight' } }
+end
+
 return {
   {
-    'folke/tokyonight.nvim',
+    'zaldih/themery.nvim',
+    lazy = false,
     priority = 1000,
-    opts = {
-      transparent = true,
+    dependencies = {
+      { 'ellisonleao/gruvbox.nvim' },
+      { 'folke/tokyonight.nvim' },
     },
-    init = function()
-      vim.cmd.colorscheme 'tokyonight'
-      vim.cmd.hi 'Comment gui=none'
+    config = function()
+      require('themery').setup {
+        themes = { 'tokyonight', 'gruvbox' },
+        globalAfter = [[lua UpdateLualine()]],
+      }
     end,
   },
 }
