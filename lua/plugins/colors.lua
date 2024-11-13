@@ -20,6 +20,9 @@ return {
       { 'ishan9299/nvim-solarized-lua' },
       { 'navarasu/onedark.nvim' },
       { 'EdenEast/nightfox.nvim' },
+      { 'sainnhe/everforest' },
+      { 'sainnhe/sonokai' },
+      { 'sainnhe/edge' },
     },
     config = function()
       require('themery').setup {
@@ -37,6 +40,9 @@ return {
           'catppuccin-macchiato',
           'catppuccin-mocha',
           'catppuccin-latte',
+          'everforest',
+          'sonokai',
+          'edge',
         },
         globalAfter = [[print('hello')]],
       }
