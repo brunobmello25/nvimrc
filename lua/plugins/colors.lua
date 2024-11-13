@@ -16,6 +16,10 @@ return {
       { 'rose-pine/neovim', name = 'rose-pine' },
       { 'catppuccin/nvim', name = 'catppuccin' },
       { 'Mofiqul/dracula.nvim' },
+      { 'shaunsingh/nord.nvim' },
+      { 'ishan9299/nvim-solarized-lua' },
+      { 'navarasu/onedark.nvim' },
+      { 'EdenEast/nightfox.nvim' },
     },
     config = function()
       require('themery').setup {
@@ -25,6 +29,10 @@ return {
           'rose-pine',
           'dracula',
           'dracula-soft',
+          'nord',
+          'solarized',
+          'onedark',
+          'nightfox',
           'catppuccin-frappe',
           'catppuccin-macchiato',
           'catppuccin-mocha',
