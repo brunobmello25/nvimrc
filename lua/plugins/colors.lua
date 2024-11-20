@@ -1,13 +1,53 @@
+_G.UpdateLualine = function()
+  local themery = require 'themery'
+  local currentTheme = themery.getCurrentTheme()
+
+  require('lualine').setup { options = { theme = currentTheme and currentTheme.name or 'tokyonight' } }
+end
+
 return {
   {
-    'folke/tokyonight.nvim',
+    'zaldih/themery.nvim',
+    lazy = false,
     priority = 1000,
-    opts = {
-      transparent = true,
+    dependencies = {
+      { 'ellisonleao/gruvbox.nvim' },
+      { 'folke/tokyonight.nvim' },
+      { 'rose-pine/neovim', name = 'rose-pine' },
+      { 'catppuccin/nvim', name = 'catppuccin' },
+      { 'Mofiqul/dracula.nvim' },
+      { 'shaunsingh/nord.nvim' },
+      { 'ishan9299/nvim-solarized-lua' },
+      { 'navarasu/onedark.nvim' },
+      { 'EdenEast/nightfox.nvim' },
+      { 'sainnhe/everforest' },
+      { 'sainnhe/sonokai' },
+      { 'sainnhe/edge' },
     },
-    init = function()
-      vim.cmd.colorscheme 'tokyonight'
-      vim.cmd.hi 'Comment gui=none'
+    config = function()
+      require('themery').setup {
+        themes = {
+          'tokyonight',
+          'gruvbox',
+          'rose-pine',
+          'dracula',
+          'dracula-soft',
+          'nord',
+          'solarized',
+          'onedark',
+          'nightfox',
+          'catppuccin-frappe',
+          'catppuccin-macchiato',
+          'catppuccin-mocha',
+          'catppuccin-latte',
+          'everforest',
+          'sonokai',
+          'edge',
+        },
+        globalAfter = [[print('hello')]],
+      }
+
+      vim.keymap.set('n', '<leader>tt', '<cmd>Themery<CR>')
     end,
   },
 }
