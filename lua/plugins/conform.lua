@@ -28,5 +28,10 @@ return {
         lsp_fallback = true,
       },
     },
+    init = function()
+      vim.api.nvim_create_user_command('ConformFormat', function()
+        require('conform').format()
+      end, {})
+    end,
   },
 }
