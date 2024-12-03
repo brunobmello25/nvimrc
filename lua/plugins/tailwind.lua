@@ -8,5 +8,6 @@ return {
     'nvim-telescope/telescope.nvim', -- optional
     'neovim/nvim-lspconfig', -- optional
   },
-  opts = {}, -- your configuration
+  ft = { 'html', 'css', 'scss', 'javascript', 'typescript', 'javascriptreact', 'typescriptreact' },
+  -- opts = {}, -- your configuration
 }
