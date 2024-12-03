@@ -5,9 +5,7 @@ require('lazy').setup({
 
   { 'kevinhwang91/nvim-bqf', dependencies = { 'nvim-treesitter/nvim-treesitter' } }, -- better quickfix window experience (preview, filter items etc)
 
-  { 'mechatroner/rainbow_csv' }, -- color csv nodes for better readability
-
-  { 'tpope/vim-abolish' }, -- maintain case in substitution using :S
+  { 'mechatroner/rainbow_csv', ft = { 'csv', 'tsv' } }, -- color csv nodes for better readability
 
   require 'plugins.comment', -- "gc" to comment visual regions/lines
   require 'plugins.flash', -- code navigation with "s" key
