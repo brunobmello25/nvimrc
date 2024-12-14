@@ -20,8 +20,6 @@ return {
         gdscript = { 'gdformat' },
 
         markdown = { 'markdownlint' },
-
-        plaintex = { 'latexindent' },
       },
 
       format_on_save = {
