@@ -25,13 +25,15 @@ require('lazy').setup({
   require 'plugins.lint', -- lint config
   require 'plugins.smartsplits', -- better handling of vertical and horizontal splits, and tmux integration
   require 'plugins.oil', -- my file manager of choice
-  require 'plugins.copilot', -- github copilot
   require 'plugins.zenmode', -- I use this to be able to maximize a specific buffer
-  require 'plugins.ai', -- ai plugins
   require 'plugins.database', -- database config, similar to datagrip
   require 'plugins.gitgraph', -- git graph
   require 'plugins.tailwind', -- tailwind css
   require 'plugins.undotree', -- undo tree
+
+  -- TODO: decide if I miss these two or not
+  -- require 'plugins.copilot', -- github copilot
+  -- require 'plugins.ai', -- ai plugins
 }, {
   change_detection = {
     notify = false,
