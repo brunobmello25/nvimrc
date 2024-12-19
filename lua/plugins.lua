@@ -13,7 +13,11 @@ require('lazy').setup({
   require 'plugins.telescope', -- fuzzy find files, text, etc
   require 'plugins.lspconfig', -- lsp stuff
   require 'plugins.conform', -- formatting config
-  require 'plugins.cmp', -- completion config
+
+  -- TODO: decide between this and nvim-cmp
+  require 'plugins.completion',
+  -- require 'plugins.cmp', -- completion config
+
   require 'plugins.colors', -- color theme
   require 'plugins.lualine', -- status bar
   require 'plugins.surround', -- change surround objects (quotes, brackets etc)

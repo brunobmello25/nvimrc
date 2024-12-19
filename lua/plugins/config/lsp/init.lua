@@ -15,8 +15,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end,
 })
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
+-- TODO: uncomment this if I decide to rollback to nvim-cmp from blink.cmp
+-- local capabilities = vim.lsp.protocol.make_client_capabilities()
+-- capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
 
 local servers = {
   gopls = {},
@@ -25,16 +26,11 @@ local servers = {
   texlab = {},
   rust_analyzer = {},
   lua_ls = {
-    -- cmd = {...},
-    -- filetypes = { ...},
-    -- capabilities = {},
     settings = {
       Lua = {
         completion = {
           callSnippet = 'Replace',
         },
-        -- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
-        -- diagnostics = { disable = { 'missing-fields' } },
       },
     },
   },
@@ -53,14 +49,16 @@ vim.list_extend(ensure_installed, {
 
 require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
+---@diagnostic disable-next-line: missing-fields
 require('mason-lspconfig').setup {
   handlers = {
     function(server_name)
       local server = servers[server_name] or {}
-      -- This handles overriding only values explicitly passed
-      -- by the server configuration above. Useful when disabling
-      -- certain features of an LSP (for example, turning off formatting for tsserver)
-      server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
+      -- TODO: uncomment this if I decide to rollback to nvim-cmp from blink.cmp
+      -- server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
+
+      server.capabilities = require('blink.cmp').get_lsp_capabilities(server.capabilities or {})
+
       require('lspconfig')[server_name].setup(server)
     end,
   },
