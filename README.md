@@ -21,7 +21,7 @@ You can use `:Telescope keymaps` to see all the keymaps, but the most important 
 - `<leader>ha` to [harpoon](https://github.com/ThePrimeagen/harpoon) a file
 - `<leader>hh` to show [harpoon](https://github.com/ThePrimeagen/harpoon) menu
 - `<leader>1` to `<leader>9` to switch between [harpoon](https://github.com/ThePrimeagen/harpoon) files
-- `<leader>tt` to open theme picker
+- Run `:Themery` to open theme picker
 
 (my leader key is the spacebar)
 

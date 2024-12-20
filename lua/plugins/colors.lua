@@ -46,8 +46,6 @@ return {
         },
         globalAfter = [[print('hello')]],
       }
-
-      vim.keymap.set('n', '<leader>tt', '<cmd>Themery<CR>')
     end,
   },
 }
