@@ -1,3 +1,4 @@
+---@diagnostic disable: missing-fields
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next [D]iagnostic message' })
@@ -55,3 +56,13 @@ vim.keymap.set('n', '<leader>x', '<cmd>luafile %<CR>', { desc = 'Resource file' 
 -- prevent { and } from polluting the jump list
 vim.keymap.set('n', '{', '<cmd>silent! execute "keepjumps norm! " . v:count1 . "{"<CR>', { desc = 'Move to previous paragraph' })
 vim.keymap.set('n', '}', '<cmd>silent! execute "keepjumps norm! " . v:count1 . "}"<CR>', { desc = 'Move to previous paragraph' })
+
+vim.keymap.set('n', '<leader>trn', function()
+  local relative_enabled = vim.opt.relativenumber:get()
+
+  if relative_enabled then
+    vim.opt.relativenumber = false
+  else
+    vim.opt.relativenumber = true
+  end
+end, { desc = 'Toggle relative line numbers' })
