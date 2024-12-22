@@ -36,7 +36,7 @@ require('lazy').setup({
   require 'plugins.undotree', -- undo tree
 
   -- TODO: decide if I miss these two or not
-  -- require 'plugins.copilot', -- github copilot
+  require 'plugins.copilot', -- github copilot
   -- require 'plugins.ai', -- ai plugins
 }, {
   change_detection = {

@@ -3,6 +3,7 @@ return {
   {
     'zbirenbaum/copilot.lua',
     cmd = 'Copilot',
+    dependencies = { 'windwp/nvim-autopairs' },
     event = 'InsertEnter',
     config = function()
       local copilot = require 'copilot'
@@ -23,6 +24,9 @@ return {
         suggestion.accept()
         autopairs.enable()
       end, { desc = 'Accept Copilot suggestion' })
+    end,
+    init = function()
+      vim.cmd 'Copilot disable'
     end,
   },
 }
