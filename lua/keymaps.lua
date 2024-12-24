@@ -51,7 +51,9 @@ vim.keymap.set('v', '<', '<gv', { desc = 'Indent left' })
 vim.keymap.set('n', '<leader>m', "'", { desc = 'Mark navigation' })
 
 -- resource file
-vim.keymap.set('n', '<leader>x', '<cmd>luafile %<CR>', { desc = 'Resource file' })
+vim.keymap.set('n', '<leader><leader>x', '<cmd>source %<CR>')
+vim.keymap.set('n', '<leader>x', ':.lua<CR>')
+vim.keymap.set('v', '<leader>x', ':lua<CR>')
 
 -- prevent { and } from polluting the jump list
 vim.keymap.set('n', '{', '<cmd>silent! execute "keepjumps norm! " . v:count1 . "{"<CR>', { desc = 'Move to previous paragraph' })
