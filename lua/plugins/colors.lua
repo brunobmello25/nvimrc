@@ -44,7 +44,7 @@ return {
           'sonokai',
           'edge',
         },
-        globalAfter = [[print('hello')]],
+        -- globalAfter = [[ _G.UpdateLualine() ]],
       }
     end,
   },
