@@ -23,11 +23,13 @@ return {
       { 'sainnhe/everforest' },
       { 'sainnhe/sonokai' },
       { 'sainnhe/edge' },
+      { 'scottmckendry/cyberdream.nvim' },
     },
     config = function()
       require('themery').setup {
         themes = {
           'tokyonight',
+          'cyberdream',
           'gruvbox',
           'rose-pine',
           'dracula',
