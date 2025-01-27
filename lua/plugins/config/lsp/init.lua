@@ -21,7 +21,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
 local servers = {
   gopls = {},
-  tsserver = {},
+  ts_ls = {},
   pyright = {},
   texlab = {},
   rust_analyzer = {},
