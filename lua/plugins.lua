@@ -10,9 +10,10 @@ require('lazy').setup({
   require 'plugins.comment', -- "gc" to comment visual regions/lines
   require 'plugins.flash', -- code navigation with "s" key
   require 'plugins.git', -- git plugins
-  require 'plugins.telescope', -- fuzzy find files, text, etc
   -- TODO: terminar de migrar pro telescope pro mini.pick
-  -- require 'plugins.finder', -- fuzzy find files, text, etc
+  -- require 'plugins.finder', -- picker with mini.pick
+  -- require 'plugins.pick', -- picker with snacks.picker
+  require 'plugins.telescope', -- picker with telescope
   require 'plugins.lspconfig', -- lsp stuff
   require 'plugins.conform', -- formatting config
 
