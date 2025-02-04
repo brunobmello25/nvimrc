@@ -25,6 +25,7 @@ local servers = {
   pyright = {},
   texlab = {},
   rust_analyzer = {},
+  tailwindcss = {},
   lua_ls = {
     settings = {
       Lua = {
