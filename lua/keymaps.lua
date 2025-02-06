@@ -16,7 +16,7 @@ vim.keymap.set('n', ']q', '<cmd>cnext<CR>', { desc = 'Next quickfix item' })
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
 -- yank to system clipboard
-vim.keymap.set({ 'n', 'v' }, '<leader>y', '"+y<CR>', { desc = 'Yank to clipboard' })
+vim.keymap.set({ 'n', 'v' }, '<leader>y', '"+y', { desc = 'Yank to clipboard' })
 
 -- run tmux sessionizer
 vim.keymap.set('n', '<C-f>', '<cmd>silent !tmux neww tmux-sessionizer<CR>', { desc = 'Sessionizer' })
