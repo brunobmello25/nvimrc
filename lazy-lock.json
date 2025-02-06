@@ -52,7 +52,7 @@
   "rainbow_csv": { "branch": "master", "commit": "3dbbfd7d17536aebfb80f571255548495574c32b" },
   "rose-pine": { "branch": "main", "commit": "07a887a7bef4aacea8c7caebaf8cbf808cdc7a8e" },
   "smart-splits.nvim": { "branch": "master", "commit": "e186518f9d7eb4b1e43fbbe0c52bf323637194d0" },
-  "snacks.nvim": { "branch": "main", "commit": "9e7e4b73ce627275b2f91aee83b5c3b91dc1ff77" },
+  "snacks.nvim": { "branch": "main", "commit": "270250cf4646dbb16c3d1a453257a3f024b8f362" },
   "sonokai": { "branch": "master", "commit": "3dcd97c0c5e4118bc171df6ba33800dfd9524a00" },
   "tailwind-tools": { "branch": "master", "commit": "41e901e7b4470082b5388b8385249632642c2510" },
   "telescope.nvim": { "branch": "0.1.x", "commit": "a0bbec21143c7bc5f8bb02e0005fa0b982edc026" },
