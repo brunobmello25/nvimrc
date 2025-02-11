@@ -57,7 +57,7 @@ return {
   {
     '<leader>fy',
     function()
-      Snacks.picker.registers { confirm = { 'copy', 'close' } }
+      Snacks.picker.registers()
     end,
   },
 }
