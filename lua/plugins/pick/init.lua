@@ -7,6 +7,7 @@ return {
     lazy = false,
     ---@type snacks.Config
     opts = {
+      notifier = {},
       picker = {
         enabled = true,
         formatters = {
