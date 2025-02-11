@@ -48,6 +48,7 @@ vim.list_extend(ensure_installed, {
   'gdtoolkit',
   'jsonlint',
   'yamllint',
+  'autopep8',
 })
 
 require('mason-tool-installer').setup { ensure_installed = ensure_installed }
