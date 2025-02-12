@@ -12,8 +12,8 @@ require('lazy').setup({
   require 'plugins.git', -- git plugins
   -- TODO: terminar de migrar pro telescope pro mini.pick
   -- require 'plugins.finder', -- picker with mini.pick
-  -- require 'plugins.telescope', -- picker with telescope
-  require 'plugins.pick', -- picker with snacks.picker
+  -- require 'plugins.pick', -- picker with snacks.picker
+  require 'plugins.telescope', -- picker with telescope
   require 'plugins.lspconfig', -- lsp stuff
   require 'plugins.conform', -- formatting config
 
