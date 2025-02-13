@@ -32,9 +32,6 @@ return {
         config = true,
       },
     },
-    -- TODO:
-    -- list yanked items
-    -- customize grep with ctrl+space
     keys = keys,
   },
 }
