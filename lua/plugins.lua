@@ -16,11 +16,7 @@ require('lazy').setup({
   require 'plugins.pick', -- picker with snacks.picker
   require 'plugins.lspconfig', -- lsp stuff
   require 'plugins.conform', -- formatting config
-
-  -- TODO: decide between this and nvim-cmp
-  require 'plugins.completion',
-  -- require 'plugins.cmp', -- completion config
-
+  require 'plugins.completion', -- completion
   require 'plugins.colors', -- color theme
   require 'plugins.lualine', -- status bar
   require 'plugins.surround', -- change surround objects (quotes, brackets etc)
