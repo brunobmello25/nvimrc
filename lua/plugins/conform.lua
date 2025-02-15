@@ -15,6 +15,7 @@ return {
         python = { 'autopep8' },
         gdscript = { 'gdformat' },
         markdown = { 'markdownlint' },
+        cs = { 'csharpier' },
       },
 
       format_on_save = {
