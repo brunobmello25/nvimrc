@@ -7,24 +7,25 @@ as a starting point
 
 # Keymaps
 
-You can use `:Telescope keymaps` to see all the keymaps, but the most important ones are:
+You can use `:Keymaps` to see all the keymaps, but the most important ones are:
 
-- `<leader>ff` to search for files
-- `<leader>fg` to search for content with grep
-- `<leader>fF` to search for files and include hidden files
+- `<space>ff` to search for files
+- `<space>fg` to search for content with grep
+- `<space>fF` to search for files and include hidden files
 - `gd` go to definition
 - `gI` go to implementation
 - `gr` go to references
-- `<leader>rn` rename symbol
-- `<leader>.` code actions
+- `<space>rn` rename symbol
+- `<space>.` code actions
 - `-` open [oil.nvim](https://github.com/stevearc/oil.nvim) (my file manager of choice)
-- `<leader>ha` to [harpoon](https://github.com/ThePrimeagen/harpoon) a file
-- `<leader>hh` to show [harpoon](https://github.com/ThePrimeagen/harpoon) menu
-- `<leader>1` to `<leader>9` to switch between [harpoon](https://github.com/ThePrimeagen/harpoon) files
+- `<space>ha` to [grapple](https://github.com/cbochs/grapple.nvim) a file
+- `<space>hh` to show [grapple](https://github.com/cbochs/grapple.nvim) menu
+- `<space>1` to `<space>9` to switch between [grapple](https://github.com/cbochs/grapple.nvim) files
 - Run `:Themery` to open theme picker
-
-(my leader key is the spacebar)
 
 # Requirements
 
 - Ripgrep
+- NodeJS
+- Python
+- Golang

@@ -33,5 +33,8 @@ return {
       },
     },
     keys = keys,
+    init = function()
+      vim.api.nvim_create_user_command('Keymaps', require('snacks').picker.keymaps, {})
+    end,
   },
 }
