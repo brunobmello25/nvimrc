@@ -4,22 +4,18 @@ return {
     opts = {
       formatters_by_ft = {
         lua = { 'stylua' },
-
-        javascript = { { 'prettierd', 'prettier' } },
-        typescript = { { 'prettier', 'prettierd' } },
-        typescriptreact = { { 'prettier', 'prettierd' } },
-        javascriptreact = { { 'prettier', 'prettierd' } },
-        yaml = { 'prettier', 'prettierd' },
-        html = { 'prettier', 'prettierd' },
-        css = { 'prettier', 'prettierd' },
-
+        javascript = { 'prettier' },
+        typescript = { 'prettier' },
+        typescriptreact = { 'prettier' },
+        javascriptreact = { 'prettier' },
+        yaml = { 'prettier' },
+        html = { 'prettier' },
+        css = { 'prettier' },
         json = { 'jq' },
-
         python = { 'autopep8' },
-
         gdscript = { 'gdformat' },
-
         markdown = { 'markdownlint' },
+        cs = { 'csharpier' },
       },
 
       format_on_save = {

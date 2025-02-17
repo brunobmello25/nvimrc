@@ -25,6 +25,7 @@ local servers = {
   pyright = {},
   texlab = {},
   rust_analyzer = {},
+  csharp_ls = {},
   tailwindcss = {},
   lua_ls = {
     settings = {
@@ -49,6 +50,7 @@ vim.list_extend(ensure_installed, {
   'jsonlint',
   'yamllint',
   'autopep8',
+  'csharpier',
 })
 
 require('mason-tool-installer').setup { ensure_installed = ensure_installed }
