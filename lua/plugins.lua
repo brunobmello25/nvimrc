@@ -21,7 +21,7 @@ require('lazy').setup({
   require 'plugins.lualine', -- status bar
   require 'plugins.surround', -- change surround objects (quotes, brackets etc)
   require 'plugins.treesitter',
-  require 'plugins.harpoon', -- "favorite" file navigation
+  require 'plugins.grapple', -- "favorite" file navigation
   require 'plugins.autopairs', -- auto write closing brackets, quotes etc
   require 'plugins.autotags', -- autoclose tags like html, xml etc
   require 'plugins.debug', -- debug config
