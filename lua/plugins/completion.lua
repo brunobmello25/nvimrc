@@ -39,7 +39,12 @@ return {
 
       sources = {
         default = { 'lsp', 'path', 'snippets', 'buffer' },
-        cmdline = {},
+        providers = {
+          cmdline = {
+            -- TODO: maybe switch this back on?
+            enabled = false,
+          },
+        },
       },
 
       signature = { enabled = true },
