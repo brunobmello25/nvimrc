@@ -16,6 +16,7 @@ return {
         gdscript = { 'gdformat' },
         markdown = { 'markdownlint' },
         cs = { 'csharpier' },
+        sql = { 'sql_formatter' },
       },
 
       format_on_save = {

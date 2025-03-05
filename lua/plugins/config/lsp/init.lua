@@ -51,6 +51,7 @@ vim.list_extend(ensure_installed, {
   'yamllint',
   'autopep8',
   'csharpier',
+  'sql-formatter',
 })
 
 require('mason-tool-installer').setup { ensure_installed = ensure_installed }
