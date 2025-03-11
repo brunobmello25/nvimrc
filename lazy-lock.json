@@ -41,7 +41,6 @@
   "nvim-lsp-file-operations": { "branch": "master", "commit": "9744b738183a5adca0f916527922078a965515ed" },
   "nvim-lspconfig": { "branch": "master", "commit": "7af2c37192deae28d1305ae9e68544f7fb5408e1" },
   "nvim-nio": { "branch": "master", "commit": "21f5324bfac14e22ba26553caf69ec76ae8a7662" },
-  "nvim-project-marks": { "branch": "main", "commit": "66b69e70483772edb36db8b0746e8a28ca27bf3e" },
   "nvim-solarized-lua": { "branch": "master", "commit": "d69a263c97cbc765ca442d682b3283aefd61d4ac" },
   "nvim-treesitter": { "branch": "master", "commit": "80e6de9d24eec68d82d5f4e6feae94c9c753ebd6" },
   "nvim-ts-autotag": { "branch": "main", "commit": "4c00b86bd1246ba9c4cd50a823d8296cd2eb9663" },
