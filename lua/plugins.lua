@@ -6,7 +6,8 @@ require('lazy').setup({
   { 'kevinhwang91/nvim-bqf', dependencies = { 'nvim-treesitter/nvim-treesitter' } }, -- better quickfix window experience (preview, filter items etc)
 
   {
-    dir = '~/dev/personal/persist-quickfix.nvim',
+    'brunobmello25/persist-quickfix.nvim',
+    -- dir = '~/dev/personal/persist-quickfix.nvim',
     opts = {},
   },
 
