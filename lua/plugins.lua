@@ -8,6 +8,7 @@ require('lazy').setup({
   {
     'brunobmello25/persist-quickfix.nvim',
     -- dir = '~/dev/personal/persist-quickfix.nvim',
+    --- @type PersistQuickfix.Config
     opts = {},
   },
 
