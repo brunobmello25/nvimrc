@@ -10,6 +10,18 @@ require('lazy').setup({
     -- dir = '~/dev/personal/persist-quickfix.nvim',
     --- @type PersistQuickfix.Config
     opts = {},
+    init = function()
+      local persist_quickfix = require 'persist-quickfix'
+      vim.keymap.set('n', '<leader>sq', function()
+        vim.ui.input({ prompt = 'Quickfix name: ' }, function(value)
+          persist_quickfix.save(value)
+        end)
+      end)
+
+      vim.keymap.set('n', '<leader>lq', function()
+        persist_quickfix.choose()
+      end)
+    end,
   },
 
   require 'plugins.project-marks',
