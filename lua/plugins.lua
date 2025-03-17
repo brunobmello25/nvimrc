@@ -5,25 +5,7 @@ require('lazy').setup({
 
   { 'kevinhwang91/nvim-bqf', dependencies = { 'nvim-treesitter/nvim-treesitter' } }, -- better quickfix window experience (preview, filter items etc)
 
-  {
-    'brunobmello25/persist-quickfix.nvim',
-    -- dir = '~/dev/personal/persist-quickfix.nvim',
-    --- @type PersistQuickfix.Config
-    opts = {},
-    init = function()
-      local persist_quickfix = require 'persist-quickfix'
-      vim.keymap.set('n', '<leader>sq', function()
-        vim.ui.input({ prompt = 'Quickfix name: ' }, function(value)
-          persist_quickfix.save(value)
-        end)
-      end)
-
-      vim.keymap.set('n', '<leader>lq', function()
-        persist_quickfix.choose()
-      end)
-    end,
-  },
-
+  require 'plugins.persist-quickfix',
   require 'plugins.project-marks',
   require 'plugins.csv',
   require 'plugins.comment', -- "gc" to comment visual regions/lines
