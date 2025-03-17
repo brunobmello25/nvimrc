@@ -4,12 +4,8 @@ return {
     dependencies = {
       { 'nvim-tree/nvim-web-devicons', lazy = true },
       { 'f-person/git-blame.nvim' },
-      { 'zaldih/themery.nvim' },
     },
     config = function()
-      local themery = require 'themery'
-      local currentTheme = themery.getCurrentTheme()
-
       require('lualine').setup {
         sections = {
           lualine_c = {
@@ -26,7 +22,7 @@ return {
           },
         },
         options = {
-          theme = currentTheme and currentTheme.name or 'tokyonight',
+          theme = 'auto',
           icons_enabled = true,
           globalstatus = true,
           disabled_filetypes = { 'alpha', 'dashboard', 'NvimTree', 'Outline' },
