@@ -14,11 +14,15 @@ return {
         persist_quickfix.choose()
       end, {})
 
-      vim.api.nvim_create_user_command('SaveQuickfix', function()
-        vim.ui.input({ prompt = 'Quickfix name: ' }, function(value)
-          persist_quickfix.save(value)
-        end)
-      end, {})
+      vim.api.nvim_create_user_command('SaveQuickfix', function(args)
+        if args.fargs[1] and args.fargs[1] ~= '' then
+          persist_quickfix.save(args.fargs[1])
+        else
+          vim.ui.input({ prompt = 'Quickfix name: ' }, function(value)
+            persist_quickfix.save(value)
+          end)
+        end
+      end, { nargs = '?' })
 
       vim.keymap.set('n', '<leader>sq', '<cmd>SaveQuickfix<CR>')
 
