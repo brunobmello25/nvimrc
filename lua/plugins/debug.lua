@@ -9,8 +9,7 @@ return {
       'williamboman/mason.nvim',
       'jay-babu/mason-nvim-dap.nvim',
 
-      -- 'leoluz/nvim-dap-go',
-      'CruelAddict/nvim-dap-go',
+      'leoluz/nvim-dap-go',
       'mfussenegger/nvim-dap-python',
     },
     config = function()
