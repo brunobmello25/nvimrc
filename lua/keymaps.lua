@@ -59,12 +59,4 @@ vim.keymap.set('v', '<leader>x', ':lua<CR>')
 vim.keymap.set('n', '{', '<cmd>silent! execute "keepjumps norm! " . v:count1 . "{"<CR>', { desc = 'Move to previous paragraph' })
 vim.keymap.set('n', '}', '<cmd>silent! execute "keepjumps norm! " . v:count1 . "}"<CR>', { desc = 'Move to previous paragraph' })
 
-vim.keymap.set('n', '<leader>trn', function()
-  local relative_enabled = vim.opt.relativenumber:get()
-
-  if relative_enabled then
-    vim.opt.relativenumber = false
-  else
-    vim.opt.relativenumber = true
-  end
-end, { desc = 'Toggle relative line numbers' })
+vim.keymap.set('n', '<leader>rln', '<cmd>RelativeLineNumber<CR>', { desc = 'Toggle relative line numbers' })
