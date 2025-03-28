@@ -21,7 +21,6 @@ return {
         nerd_font_variant = 'mono',
       },
 
-      -- TODO: should switch back to friend-snippets when the highlight bug is fixed
       snippets = {
         expand = function(snippet)
           require('luasnip').lsp_expand(snippet)
