@@ -15,10 +15,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end,
 })
 
--- TODO: uncomment this if I decide to rollback to nvim-cmp from blink.cmp
--- local capabilities = vim.lsp.protocol.make_client_capabilities()
--- capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
-
 local servers = {
   gopls = {},
   ts_ls = {},
@@ -65,9 +61,6 @@ require('mason-lspconfig').setup {
   handlers = {
     function(server_name)
       local server = servers[server_name] or {}
-      -- TODO: uncomment this if I decide to rollback to nvim-cmp from blink.cmp
-      -- server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
-
       server.capabilities = require('blink.cmp').get_lsp_capabilities(server.capabilities or {})
 
       require('lspconfig')[server_name].setup(server)
