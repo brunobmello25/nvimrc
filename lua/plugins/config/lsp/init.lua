@@ -33,6 +33,10 @@ local servers = {
         completion = {
           callSnippet = 'Replace',
         },
+        workspace = {
+          checkThirdParty = 'Apply',
+          userThirdParty = { require('plugins.config.lsp.addons').addons_dir },
+        },
       },
     },
   },
