@@ -21,7 +21,6 @@ You can use `:Keymaps` to see all the keymaps, but the most important ones are:
 - `<space>ha` to [grapple](https://github.com/cbochs/grapple.nvim) a file
 - `<space>hh` to show [grapple](https://github.com/cbochs/grapple.nvim) menu
 - `<space>1` to `<space>9` to switch between [grapple](https://github.com/cbochs/grapple.nvim) files
-- Run `:Themery` to open theme picker
 
 # Requirements
 
