@@ -15,7 +15,6 @@ return {
         python = { 'autopep8' },
         gdscript = { 'gdformat' },
         markdown = { 'markdownlint' },
-        cs = { 'csharpier' },
         sql = { 'sql_formatter' },
       },
 
