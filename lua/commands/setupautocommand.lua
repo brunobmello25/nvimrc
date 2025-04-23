@@ -1,3 +1,7 @@
+--- This autocommand is useful for running external neovim commands automatically when
+--- saving a specific buffer. For example, for running `plantuml something.puml` everytime
+--- we save `something.puml`, run `:SetupCommandOnSave` and then pass in
+--- the command `plantuml something.puml`
 vim.api.nvim_create_user_command('SetupCommandOnSave', function()
   local cmd = vim.fn.input 'Command to run on save: '
 
