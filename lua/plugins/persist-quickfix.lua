@@ -14,6 +14,10 @@ return {
         persist_quickfix.choose()
       end, {})
 
+      vim.api.nvim_create_user_command('OverrideQuickfix', function()
+        persist_quickfix.choose_override()
+      end, {})
+
       vim.api.nvim_create_user_command('SaveQuickfix', function(args)
         if args.fargs[1] and args.fargs[1] ~= '' then
           persist_quickfix.save(args.fargs[1])
