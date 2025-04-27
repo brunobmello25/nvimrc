@@ -8,6 +8,7 @@ return {
     ---@type snacks.Config
     opts = {
       -- notifier = {},
+      image = {},
       picker = {
         enabled = true,
         formatters = {

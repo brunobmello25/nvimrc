@@ -5,6 +5,8 @@ require('lazy').setup({
 
   { 'kevinhwang91/nvim-bqf', dependencies = { 'nvim-treesitter/nvim-treesitter' } }, -- better quickfix window experience (preview, filter items etc)
 
+  { 'aklt/plantuml-syntax' },
+
   require 'plugins.neogen',
   require 'plugins.persist-quickfix',
   require 'plugins.project-marks',
