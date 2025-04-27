@@ -16,6 +16,8 @@ return {
         gdscript = { 'gdformat' },
         markdown = { 'markdownlint' },
         sql = { 'sql_formatter' },
+        c = { 'clang-format' },
+        cpp = { 'clang-format' },
       },
 
       format_on_save = {
