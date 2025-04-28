@@ -22,6 +22,7 @@ local servers = {
   texlab = {},
   rust_analyzer = {},
   tailwindcss = {},
+  clangd = {},
   lua_ls = {
     settings = {
       Lua = {
@@ -51,6 +52,8 @@ vim.list_extend(ensure_installed, {
   'autopep8',
   'sql-formatter',
   'golangci-lint',
+  'clang-format',
+  'markdownlint',
 })
 
 require('mason-tool-installer').setup { ensure_installed = ensure_installed }
