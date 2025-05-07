@@ -20,7 +20,13 @@ local servers = {
   ts_ls = {},
   pyright = {},
   texlab = {},
-  rust_analyzer = {},
+  rust_analyzer = {
+    settings = {
+      cargo = {
+        targetDir = vim.fn.expand '$HOME/.cache/rust-analyzer-target',
+      },
+    },
+  },
   tailwindcss = {},
   clangd = {},
   lua_ls = {
