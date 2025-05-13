@@ -9,7 +9,6 @@ require('lazy').setup({
 
   require 'plugins.neogen',
   require 'plugins.persist-quickfix',
-  require 'plugins.project-marks',
   require 'plugins.csv',
   require 'plugins.comment', -- "gc" to comment visual regions/lines
   require 'plugins.flash', -- code navigation with "s" key
