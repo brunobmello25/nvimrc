@@ -25,8 +25,5 @@ return {
         autopairs.enable()
       end, { desc = 'Accept Copilot suggestion' })
     end,
-    init = function()
-      vim.cmd 'Copilot disable'
-    end,
   },
 }
