@@ -7,6 +7,8 @@ require('lazy').setup({
 
   { 'aklt/plantuml-syntax' },
 
+  { 'chentoast/marks.nvim', event = 'VeryLazy', opts = {} },
+
   require 'plugins.neogen',
   require 'plugins.persist-quickfix',
   require 'plugins.csv',
