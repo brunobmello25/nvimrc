@@ -24,15 +24,11 @@ return {
       snippets = {
         preset = 'luasnip',
       },
-
       sources = {
         default = { 'lsp', 'path', 'snippets', 'buffer' },
-        providers = {
-          cmdline = {
-            -- TODO: maybe switch this back on?
-            enabled = false,
-          },
-        },
+      },
+      cmdline = {
+        enabled = false,
       },
 
       signature = { enabled = true },
