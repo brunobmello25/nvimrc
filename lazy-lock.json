@@ -2,6 +2,7 @@
   "Comment.nvim": { "branch": "master", "commit": "e30b7f2008e52442154b66f7c519bfd2f1e32acb" },
   "LuaSnip": { "branch": "master", "commit": "03c8e67eb7293c404845b3982db895d59c0d1538" },
   "blink.cmp": { "branch": "main", "commit": "18b352d12b35bca148427b607098df14b75a218f" },
+  "codecompanion.nvim": { "branch": "main", "commit": "01b2841d7791376e23728d9faf657fe999e6c209" },
   "conform.nvim": { "branch": "master", "commit": "8ed162b0637d4c4f69ebe3e8e49b35662a82e137" },
   "copilot.lua": { "branch": "master", "commit": "30321e33b03cb924fdcd6a806a0dc6fa0b0eafb9" },
   "csvview.nvim": { "branch": "main", "commit": "545da7939fd295c4c95e606173f5d00658d66abc" },
