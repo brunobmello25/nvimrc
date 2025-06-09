@@ -14,13 +14,20 @@ local is_window_empty = function()
   return line_count == 0
 end
 
-vim.api.nvim_create_user_command('Prompt', function()
+vim.api.nvim_create_user_command('Prompt', function(opts)
   local buffer = vim.api.nvim_create_buf(false, true)
 
   local win = vim.api.nvim_get_current_win()
+  local split_type = 'right'
+
+  -- Check if a split type is specified
+  if opts.args and (opts.args == 'v' or opts.args == 'h') then
+    split_type = opts.args == 'v' and 'right' or 'below'
+  end
+
   if not is_window_empty() then
     win = vim.api.nvim_open_win(buffer, false, {
-      split = 'right',
+      split = split_type,
       win = 0,
     })
   end
@@ -36,4 +43,9 @@ vim.api.nvim_create_user_command('Prompt', function()
     '```',
     '```',
   })
-end, {})
+end, {
+  nargs = '?',
+  complete = function()
+    return { 'v', 'w' }
+  end,
+})
