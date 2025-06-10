@@ -17,6 +17,13 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
 local servers = {
   gopls = {},
+  omnisharp = {
+    -- TODO: uncomment this if we have trouble setting up omnisharp
+    -- cmd = { 'dotnet', vim.fn.expand '$HOME/.local/share/nvim/mason/packages/omnisharp/OmniSharp.dll' },
+    -- root_dir = function(fname)
+    --   return require('lspconfig.util').root_pattern '.git'(fname) or vim.fn.getcwd()
+    -- end,
+  },
   ts_ls = {},
   pyright = {},
   texlab = {},
