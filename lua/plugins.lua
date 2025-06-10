@@ -9,13 +9,14 @@ require('lazy').setup({
 
   { 'chentoast/marks.nvim', event = 'VeryLazy', opts = {} },
 
+  require 'plugins.snacks', -- snacks plugins like picker, image and terminal
+
   require 'plugins.neogen',
   require 'plugins.persist-quickfix',
   require 'plugins.csv',
   require 'plugins.comment', -- "gc" to comment visual regions/lines
   require 'plugins.flash', -- code navigation with "s" key
   require 'plugins.git', -- git plugins
-  require 'plugins.pick', -- picker with snacks.picker
   require 'plugins.lspconfig', -- lsp stuff
   require 'plugins.conform', -- formatting config
   require 'plugins.completion', -- completion
