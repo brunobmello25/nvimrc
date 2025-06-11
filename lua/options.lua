@@ -47,3 +47,5 @@ vim.opt.fileformat = 'unix'
 vim.opt.wrap = false
 
 vim.g.tex_flavor = 'latex'
+
+vim.opt.cursorline = true
