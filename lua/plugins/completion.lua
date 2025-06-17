@@ -2,7 +2,7 @@
 return {
   {
     'saghen/blink.cmp',
-    dependencies = { 'L3MON4D3/LuaSnip', version = 'v2.*' },
+    dependencies = { 'folke/lazydev.nvim', 'L3MON4D3/LuaSnip', version = 'v2.*' },
 
     version = 'v0.*',
     ---@module 'blink.cmp'
@@ -25,7 +25,15 @@ return {
         preset = 'luasnip',
       },
       sources = {
-        default = { 'lsp', 'path', 'snippets', 'buffer' },
+        default = { 'lazydev', 'lsp', 'path', 'snippets', 'buffer' },
+        providers = {
+          lazydev = {
+            name = 'LazyDev',
+            module = 'lazydev.integrations.blink',
+            -- make lazydev completions top priority (see `:h blink.cmp`)
+            score_offset = 100,
+          },
+        },
       },
       cmdline = {
         enabled = false,

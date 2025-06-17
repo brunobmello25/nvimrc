@@ -37,17 +37,17 @@ local servers = {
   tailwindcss = {},
   clangd = {},
   lua_ls = {
-    settings = {
-      Lua = {
-        completion = {
-          callSnippet = 'Replace',
-        },
-        workspace = {
-          checkThirdParty = 'Apply',
-          userThirdParty = { require('plugins.config.lsp.addons').addons_dir },
-        },
-      },
-    },
+    -- settings = {
+    -- Lua = {
+    --   completion = {
+    --     callSnippet = 'Replace',
+    --   },
+    --   workspace = {
+    --     checkThirdParty = 'Apply',
+    --     userThirdParty = { require('plugins.config.lsp.addons').addons_dir },
+    --   },
+    -- },
+    -- },
   },
 }
 
