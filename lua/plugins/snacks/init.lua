@@ -6,7 +6,7 @@ return {
     ---@type snacks.Config
     opts = {
       image = {},
-      picker = require 'plugins.snacks.config.picker',
+      -- picker = require 'plugins.snacks.config.picker',
       terminal = {},
     },
     dependencies = {

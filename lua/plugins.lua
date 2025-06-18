@@ -10,7 +10,7 @@ require('lazy').setup({
   { 'chentoast/marks.nvim', event = 'VeryLazy', opts = {} },
 
   require 'plugins.snacks', -- snacks plugins like picker, image and terminal
-
+  require 'plugins.fzf',
   require 'plugins.neogen',
   require 'plugins.persist-quickfix',
   require 'plugins.csv',
