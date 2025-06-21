@@ -10,6 +10,8 @@ return {
 
           max_width = 30,
           max_height = 30,
+          inline = false,
+          float = false,
         },
       },
       -- picker = require 'plugins.snacks.config.picker',
