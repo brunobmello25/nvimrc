@@ -5,7 +5,15 @@ return {
     lazy = false,
     ---@type snacks.Config
     opts = {
-      image = {},
+      image = {
+        doc = {
+
+          max_width = 30,
+          max_height = 30,
+          inline = false,
+          float = false,
+        },
+      },
       -- picker = require 'plugins.snacks.config.picker',
       terminal = {},
     },

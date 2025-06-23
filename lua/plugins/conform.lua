@@ -10,6 +10,7 @@ return {
         javascriptreact = { 'prettier' },
         yaml = { 'prettier' },
         html = { 'prettier' },
+        htmldjango = { 'prettier' },
         css = { 'prettier' },
         json = { 'jq' },
         python = { 'autopep8' },
