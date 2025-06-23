@@ -35,7 +35,6 @@ require('lazy').setup({
   require 'plugins.database', -- database config, similar to datagrip
   require 'plugins.gitgraph', -- git graph
   require 'plugins.tailwind', -- tailwind css
-  require 'plugins.undotree', -- undo tree
   require 'plugins.ai', -- code companion and MCPs (Model Context Protocol)
   require 'plugins.copilot', -- github copilot
 }, {
