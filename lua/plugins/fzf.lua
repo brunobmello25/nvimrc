@@ -2,7 +2,14 @@ return {
   {
     'ibhagwan/fzf-lua',
     dependencies = { 'nvim-tree/nvim-web-devicons', 'folke/todo-comments.nvim' },
-    opts = { 'telescope' },
+    opts = {
+      'telescope',
+      winopts = {
+        on_create = function()
+          vim.keymap.set('t', '<C-r>', [['<C-\><C-N>"'.nr2char(getchar()).'pi']], { expr = true, buffer = true })
+        end,
+      },
+    },
     init = function()
       vim.keymap.set('n', '<leader>ff', ':FzfLua files<CR>', { desc = 'FzfLua: Find Files' })
       vim.keymap.set('n', '<leader>fF', ':FzfLua files hidden=true<CR>', { desc = 'FzfLua: Find Files (Hidden)' })
