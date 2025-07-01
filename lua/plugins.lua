@@ -3,7 +3,18 @@ require('lazy').setup({
 
   -- { 'romainl/vim-cool' }, -- clear search highlight after cursor movement
 
-  { 'kevinhwang91/nvim-bqf', dependencies = { 'nvim-treesitter/nvim-treesitter' } }, -- better quickfix window experience (preview, filter items etc)
+  {
+    'kevinhwang91/nvim-bqf',
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter',
+      {
+        'junegunn/fzf',
+        run = function()
+          vim.fn['fzf#install']()
+        end,
+      },
+    },
+  }, -- better quickfix window experience (preview, filter items etc)
 
   { 'aklt/plantuml-syntax' },
 
