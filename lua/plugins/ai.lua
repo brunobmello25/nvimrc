@@ -2,6 +2,9 @@ return {
   {
     'coder/claudecode.nvim',
     config = true,
+    dependencies = {
+      'folke/snacks.nvim',
+    },
     keys = {
       { '<leader>cc', '<cmd>ClaudeCode<cr>', mode = 'n', desc = 'Toggle Claude' },
       { '<leader>cc', "<cmd>'<'>ClaudeCodeSend<cr>", mode = 'v', desc = 'Send to Claude' },
