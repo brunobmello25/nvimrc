@@ -17,3 +17,4 @@ dap.listeners.after.event_initialized['dapui_config'] = dapui.open
 require 'plugins.config.debug.languages.go'
 require 'plugins.config.debug.languages.python'
 require 'plugins.config.debug.languages.godot'
+require 'plugins.config.debug.languages.cpp'
