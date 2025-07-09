@@ -1,6 +1,16 @@
 return {
   {
     'stevearc/conform.nvim',
+    enabled = function()
+      -- return false if the current directory root has a .conform-ignore file
+
+      local root = vim.fn.getcwd()
+      local conform_ignore = vim.fn.glob(root .. '/.conform-ignore', false, true)
+      if #conform_ignore > 0 then
+        return false
+      end
+      return true
+    end,
     opts = {
       formatters_by_ft = {
         lua = { 'stylua' },
