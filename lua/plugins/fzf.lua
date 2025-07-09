@@ -5,14 +5,25 @@ return {
       'nvim-tree/nvim-web-devicons',
       { 'folke/todo-comments.nvim', opts = {} },
     },
-    opts = {
-      'telescope',
-      winopts = {
-        on_create = function()
-          vim.keymap.set('t', '<C-r>', [['<C-\><C-N>"'.nr2char(getchar()).'pi']], { expr = true, buffer = true })
-        end,
-      },
-    },
+    config = function()
+      require('fzf-lua').setup {
+        'telescope',
+        winopts = {
+          on_create = function()
+            vim.keymap.set('t', '<C-r>', [['<C-\><C-N>"'.nr2char(getchar()).'pi']], { expr = true, buffer = true })
+          end,
+        },
+      }
+
+      require('fzf-lua').register_ui_select {
+        telescope = {
+          layout_config = {
+            width = 0.8,
+            height = 0.8,
+          },
+        },
+      }
+    end,
     init = function()
       vim.keymap.set('n', '<leader>ff', ':FzfLua files<CR>', { desc = 'FzfLua: Find Files' })
       vim.keymap.set('n', '<leader>fF', ':FzfLua files hidden=true<CR>', { desc = 'FzfLua: Find Files (Hidden)' })
