@@ -48,6 +48,7 @@ require('lazy').setup({
   require 'plugins.tailwind', -- tailwind css
   require 'plugins.ai', -- code companion and MCPs (Model Context Protocol)
   require 'plugins.copilot', -- github copilot
+  require 'plugins.whichkey'
 }, {
   change_detection = {
     notify = false,
