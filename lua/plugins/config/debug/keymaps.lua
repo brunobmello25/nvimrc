@@ -14,6 +14,6 @@ end, { desc = 'DAP reset UI' })
 vim.keymap.set('n', '<leader>du', '<cmd>lua require"dapui".toggle()<CR>', { desc = 'Debug: Toggle DAP-UI' })
 vim.keymap.set('n', '<leader>B', function()
   dap.set_breakpoint(vim.fn.input 'Breakpoint condition: ')
-end, { desc = 'Debug: Set Breakpoint' })
+end, { desc = 'Debug: conditional breakpoint' })
 
 vim.keymap.set('n', '<leader>de', '<cmd>lua require"dapui".eval()<CR>', { desc = 'DAP eval' })
