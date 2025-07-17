@@ -13,6 +13,9 @@ return {
             vim.keymap.set('t', '<C-r>', [['<C-\><C-N>"'.nr2char(getchar()).'pi']], { expr = true, buffer = true })
           end,
         },
+        grep = {
+          hidden = true,
+        },
       }
 
       require('fzf-lua').register_ui_select {
