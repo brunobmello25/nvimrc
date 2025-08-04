@@ -16,6 +16,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 })
 
 local servers = {
+  zls = {},
   gopls = {},
   omnisharp = {
     -- TODO: uncomment this if we have trouble setting up omnisharp
