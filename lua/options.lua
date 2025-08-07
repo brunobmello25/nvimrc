@@ -51,3 +51,5 @@ vim.g.tex_flavor = 'latex'
 vim.opt.cursorline = true
 
 vim.opt.swapfile = false
+
+vim.opt.winborder = 'rounded'
