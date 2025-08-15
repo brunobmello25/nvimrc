@@ -14,7 +14,10 @@ require 'plugins.config.debug.keymaps'
 dapui.setup()
 dap.listeners.after.event_initialized['dapui_config'] = dapui.open
 
+require 'plugins.config.debug.adapters.codelldb'
+
 require 'plugins.config.debug.languages.go'
 require 'plugins.config.debug.languages.python'
 require 'plugins.config.debug.languages.godot'
 require 'plugins.config.debug.languages.cpp'
+require 'plugins.config.debug.languages.zig'
