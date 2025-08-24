@@ -170,6 +170,28 @@ require('lazy').setup({
       end, {})
     end,
   },
+
+  -- Mason for formatter installation
+  {
+    'williamboman/mason.nvim',
+    dependencies = {
+      'WhoIsSethDaniel/mason-tool-installer.nvim',
+    },
+    config = function()
+      require('mason').setup()
+
+      require('mason-tool-installer').setup { 
+        ensure_installed = {
+          'stylua',
+          'prettier',
+          'autopep8',
+          'clang-format',
+          'markdownlint',
+          'sql-formatter',
+        }
+      }
+    end,
+  },
 }, {
   change_detection = {
     notify = false,
@@ -222,3 +244,9 @@ vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'Scroll up' })
 -- Keep visual selection after indenting
 vim.keymap.set('v', '>', '>gv', { desc = 'Indent right' })
 vim.keymap.set('v', '<', '<gv', { desc = 'Indent left' })
+
+-- Split navigation with Ctrl+arrows
+vim.keymap.set('n', '<C-Left>', '<C-w>h', { desc = 'Move to left split' })
+vim.keymap.set('n', '<C-Down>', '<C-w>j', { desc = 'Move to down split' })
+vim.keymap.set('n', '<C-Up>', '<C-w>k', { desc = 'Move to up split' })
+vim.keymap.set('n', '<C-Right>', '<C-w>l', { desc = 'Move to right split' })
