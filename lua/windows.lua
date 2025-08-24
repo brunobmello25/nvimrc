@@ -88,6 +88,37 @@ require('lazy').setup({
       'antosha417/nvim-lsp-file-operations',
     },
   },
+
+  -- Moonfly color scheme
+  {
+    'bluz71/vim-moonfly-colors',
+    lazy = false,
+    priority = 1000,
+    init = function()
+      vim.g.moonflyWinSeparator = 2
+      vim.cmd('colorscheme moonfly')
+    end,
+  },
+
+  -- Flash for enhanced navigation
+  {
+    'folke/flash.nvim',
+    event = 'VeryLazy',
+    opts = {
+      modes = {
+        search = {
+          enabled = false,
+        },
+      },
+    },
+    keys = {
+      { "s",     mode = { "n", "x", "o" }, function() require("flash").jump() end,              desc = "Flash" },
+      { "S",     mode = { "n", "x", "o" }, function() require("flash").treesitter() end,        desc = "Flash Treesitter" },
+      { "r",     mode = "o",               function() require("flash").remote() end,            desc = "Remote Flash" },
+      { "R",     mode = { "o", "x" },      function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
+      { "<c-s>", mode = { "c" },           function() require("flash").toggle() end,            desc = "Toggle Flash Search" },
+    },
+  },
 }, {
   change_detection = {
     notify = false,
@@ -112,3 +143,31 @@ require('lazy').setup({
     },
   },
 })
+
+-- Basic keymaps
+-- Diagnostic keymaps
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next [D]iagnostic message' })
+
+-- Terminal mode
+vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
+
+-- Clipboard
+vim.keymap.set({ 'n', 'v' }, '<leader>y', '"+y', { desc = 'Yank to clipboard' })
+
+-- Navigation
+vim.keymap.set('n', '<leader>q', '<cmd>q<CR>', { desc = 'Quit' })
+vim.keymap.set('n', '<leader>w', '<C-w>', { desc = 'Window commands' })
+
+-- Visual mode improvements
+vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv", { desc = 'Move selected lines down' })
+vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", { desc = 'Move selected lines up' })
+vim.keymap.set('x', 'p', '"_dP', { desc = 'Prevent yank when pasting' })
+
+-- Centered scrolling
+vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'Scroll down' })
+vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'Scroll up' })
+
+-- Keep visual selection after indenting
+vim.keymap.set('v', '>', '>gv', { desc = 'Indent right' })
+vim.keymap.set('v', '<', '<gv', { desc = 'Indent left' })
