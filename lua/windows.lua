@@ -119,6 +119,15 @@ require('lazy').setup({
       { "<c-s>", mode = { "c" },           function() require("flash").toggle() end,            desc = "Toggle Flash Search" },
     },
   },
+
+  -- Git integration
+  {
+    'tpope/vim-fugitive',
+    config = function()
+      vim.keymap.set('n', 'gf', '<cmd>diffget //2<CR>', { desc = 'Get left side of diff' })
+      vim.keymap.set('n', 'gj', '<cmd>diffget //3<CR>', { desc = 'Get right side of diff' })
+    end,
+  },
 }, {
   change_detection = {
     notify = false,
