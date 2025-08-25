@@ -53,3 +53,5 @@ vim.opt.cursorline = true
 vim.opt.swapfile = false
 
 vim.opt.winborder = 'rounded'
+
+vim.opt.colorcolumn = '80'
