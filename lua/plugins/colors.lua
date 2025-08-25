@@ -18,8 +18,10 @@ local themes = {
     source = 'RRethy/base16-nvim',
     cmd_name = 'base16-black-metal-gorgoroth',
     setup_highlights = function()
-      vim.api.nvim_set_hl(0, 'DiffAdded', { fg = '#a3be8c', bg = 'NONE' })
-      vim.api.nvim_set_hl(0, 'DiffRemoved', { fg = '#bf616a', bg = 'NONE' })
+      vim.api.nvim_set_hl(0, 'DiffAdded', { fg = '#5f875f', bg = 'NONE' })
+      vim.api.nvim_set_hl(0, 'DiffRemoved', { fg = '#d75f5f', bg = 'NONE' })
+      vim.api.nvim_set_hl(0, 'Comment', { fg = '#808080', bg = 'NONE' })
+      vim.api.nvim_set_hl(0, 'TSComment', { fg = '#808080', bg = 'NONE' })
     end,
   },
 }
