@@ -14,8 +14,16 @@ local themes = {
       vim.g.moonflyWinSeparator = 2
     end,
   },
+  base16 = {
+    source = 'RRethy/base16-nvim',
+    cmd_name = 'base16-black-metal-gorgoroth',
+    setup_highlights = function()
+      vim.api.nvim_set_hl(0, 'DiffAdded', { fg = '#a3be8c', bg = 'NONE' })
+      vim.api.nvim_set_hl(0, 'DiffRemoved', { fg = '#bf616a', bg = 'NONE' })
+    end,
+  },
 }
-local active_theme = 'moonfly'
+local active_theme = 'base16'
 
 local active = themes[active_theme]
 
@@ -29,6 +37,10 @@ local params = {
     end
 
     vim.cmd(string.format('colorscheme %s', themes[active_theme].cmd_name))
+
+    if themes[active_theme].setup_highlights then
+      themes[active_theme].setup_highlights()
+    end
   end,
 }
 
