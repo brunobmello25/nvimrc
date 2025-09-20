@@ -3,7 +3,15 @@ return {
     'ibhagwan/fzf-lua',
     dependencies = {
       'nvim-tree/nvim-web-devicons',
-      { 'folke/todo-comments.nvim', opts = {} },
+      {
+        'folke/todo-comments.nvim',
+        config = function()
+          require('todo-comments').setup {
+            search = { pattern = [[\b(KEYWORDS)(\([^\)]*\))?:]] },
+            highlight = { pattern = [[.*<((KEYWORDS)%(\(.{-1,}\))?):]] },
+          }
+        end,
+      },
     },
     config = function()
       require('fzf-lua').setup {
