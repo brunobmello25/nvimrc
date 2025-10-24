@@ -12,6 +12,7 @@ local themes = {
     source = 'bluz71/vim-moonfly-colors',
     before_init = function()
       vim.g.moonflyWinSeparator = 2
+      vim.g.moonflyTransparent = true
     end,
   },
   base16 = {
