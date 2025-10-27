@@ -20,6 +20,7 @@ require('lazy').setup({
 
   { 'chentoast/marks.nvim', event = 'VeryLazy', opts = {} },
 
+  require 'plugins.imgclip',
   require 'plugins.snacks', -- snacks plugins like picker, image and terminal
   require 'plugins.fzf',
   require 'plugins.neogen',
@@ -48,7 +49,7 @@ require('lazy').setup({
   require 'plugins.tailwind', -- tailwind css
   require 'plugins.ai', -- code companion and MCPs (Model Context Protocol)
   require 'plugins.copilot', -- github copilot
-  require 'plugins.whichkey'
+  require 'plugins.whichkey',
 }, {
   change_detection = {
     notify = false,
