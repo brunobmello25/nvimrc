@@ -79,7 +79,8 @@ require('mason-lspconfig').setup {
       local server = servers[server_name] or {}
       server.capabilities = require('blink.cmp').get_lsp_capabilities(server.capabilities or {})
 
-      require('lspconfig')[server_name].setup(server)
+      vim.lsp.config[server_name] = server
+      vim.lsp.enable(server_name)
     end,
   },
 }

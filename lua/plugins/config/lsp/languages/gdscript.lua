@@ -1,10 +1,15 @@
-local on_attach = require('plugins.config.lsp.on_attach').on_attach
+local function root_pattern(...)
+  local patterns = { ... }
+  return function(path)
+    return vim.fs.find(patterns, { path = path, upward = true })[1]
+  end
+end
 
-require('lspconfig').gdscript.setup {
+vim.lsp.config.gdscript = {
   cmd = { 'ncat', 'localhost', os.getenv 'GDScript_Port' or '6005' },
-  on_attach = function(client, bufnr)
-    on_attach(client, bufnr)
-  end,
-  root_dir = require('lspconfig.util').root_pattern('project.godot', '.git'),
+  root_dir = root_pattern('project.godot', '.git'),
   single_file_support = false,
+  filetypes = { 'gdscript' },
 }
+
+vim.lsp.enable 'gdscript'

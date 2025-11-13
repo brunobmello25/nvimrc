@@ -1,15 +1,19 @@
-local on_attach = require('plugins.config.lsp.on_attach').on_attach
+local function root_pattern(...)
+  local patterns = { ... }
+  return function(path)
+    return vim.fs.find(patterns, { path = path, upward = true })[1]
+  end
+end
 
-require('lspconfig').prolog_ls.setup {
+vim.lsp.config.prolog_ls = {
   cmd = { 'swipl', '-g', 'use_module(library(lsp_server)).', '-g', 'lsp_server:main', '-t', 'halt', '--', 'stdio' },
   filetypes = { 'prolog' },
-  root_dir = require('lspconfig.util').root_pattern('.git', '*.pl'),
-  on_attach = function(client, bufnr)
-    on_attach(client, bufnr)
-  end,
+  root_dir = root_pattern('.git', '*.pl'),
   settings = {
     prolog_ls = {
       -- Custom settings for prolog_ls can go here
     },
   },
 }
+
+vim.lsp.enable('prolog_ls')
