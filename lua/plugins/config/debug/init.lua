@@ -21,3 +21,5 @@ require 'plugins.config.debug.languages.python'
 require 'plugins.config.debug.languages.godot'
 require 'plugins.config.debug.languages.cpp'
 require 'plugins.config.debug.languages.zig'
+
+require 'plugins.config.debug.navigate-to-links'
