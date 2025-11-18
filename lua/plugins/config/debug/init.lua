@@ -19,7 +19,7 @@ require 'plugins.config.debug.adapters.codelldb'
 require 'plugins.config.debug.languages.go'
 require 'plugins.config.debug.languages.python'
 require 'plugins.config.debug.languages.godot'
-require 'plugins.config.debug.languages.cpp'
 require 'plugins.config.debug.languages.zig'
+dap.configurations.cpp = {}
 
 require 'plugins.config.debug.navigate-to-links'
