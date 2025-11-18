@@ -21,7 +21,8 @@ require('lazy').setup({
   { 'chentoast/marks.nvim', event = 'VeryLazy', opts = {} },
 
   require 'plugins.imgclip',
-  require 'plugins.fzf',
+  require 'plugins.telescope',
+  -- require 'plugins.fzf', -- Replaced with telescope
   require 'plugins.persist-quickfix',
   require 'plugins.csv',
   require 'plugins.comment', -- "gc" to comment visual regions/lines
