@@ -42,6 +42,7 @@
   "nvim-ts-context-commentstring": { "branch": "main", "commit": "1b212c2eee76d787bbea6aa5e92a2b534e7b4f8f" },
   "nvim-web-devicons": { "branch": "master", "commit": "8dcb311b0c92d460fac00eac706abd43d94d68af" },
   "oil.nvim": { "branch": "master", "commit": "7e1cd7703ff2924d7038476dcbc04b950203b902" },
+  "pathfinder.nvim": { "branch": "main", "commit": "9c79815dfd31726119b44a71c0654377be01d3c2" },
   "persist-quickfix.nvim": { "branch": "main", "commit": "0f846d9a4f4b33634e21c4de1424f5ad24cc44ff" },
   "plantuml-syntax": { "branch": "master", "commit": "9d4900aa16674bf5bb8296a72b975317d573b547" },
   "playground": { "branch": "master", "commit": "ba48c6a62a280eefb7c85725b0915e021a1a0749" },

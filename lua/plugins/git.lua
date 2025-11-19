@@ -10,13 +10,7 @@ return {
       vim.api.nvim_create_user_command('GBT', 'GitBlameToggle', {})
     end,
   },
-  {
-    'tpope/vim-fugitive',
-    config = function()
-      vim.keymap.set('n', 'gf', '<cmd>diffget //2<CR>', { desc = 'Get left side of diff' })
-      vim.keymap.set('n', 'gj', '<cmd>diffget //3<CR>', { desc = 'Get left side of diff' })
-    end,
-  },
+  { 'tpope/vim-fugitive' },
   {
     'lewis6991/gitsigns.nvim',
     dependencies = { 'nvim-lua/plenary.nvim' },

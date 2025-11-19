@@ -20,6 +20,8 @@ require('lazy').setup({
 
   { 'chentoast/marks.nvim', event = 'VeryLazy', opts = {} },
 
+  { 'HawkinsT/pathfinder.nvim' },
+
   require 'plugins.imgclip',
   require 'plugins.telescope',
   -- require 'plugins.fzf', -- Replaced with telescope
