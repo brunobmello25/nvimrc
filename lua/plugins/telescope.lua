@@ -18,48 +18,13 @@ return {
           }
         end,
       },
+      { 'nvim-telescope/telescope-ui-select.nvim' },
     },
     config = function()
       local telescope = require 'telescope'
       local actions = require 'telescope.actions'
 
       telescope.setup {
-        defaults = {
-          mappings = {
-            i = {
-              -- Insert mode mappings
-              ['<C-u>'] = false, -- Clear prompt instead of scrolling preview
-              ['<C-d>'] = false, -- Keep default scroll down
-              -- Add paste from register in insert mode (similar to fzf-lua)
-              ['<C-r>'] = function()
-                vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<C-r>', true, false, true), 'n', false)
-              end,
-            },
-            n = {
-              -- Normal mode mappings
-              ['q'] = actions.close,
-            },
-          },
-          prompt_prefix = '🔍 ',
-          selection_caret = '➜ ',
-          path_display = { 'truncate' },
-          file_ignore_patterns = {
-            'node_modules',
-            '.git/',
-          },
-          layout_config = {
-            horizontal = {
-              preview_width = 0.55,
-              results_width = 0.8,
-            },
-            vertical = {
-              mirror = false,
-            },
-            width = 0.87,
-            height = 0.80,
-            preview_cutoff = 120,
-          },
-        },
         pickers = {
           find_files = {
             hidden = false,
@@ -71,15 +36,6 @@ return {
             additional_args = function()
               return { '--hidden', '--glob', '!.git/*' }
             end,
-          },
-          buffers = {
-            sort_mru = true,
-            sort_lastused = true,
-            mappings = {
-              i = {
-                ['<c-d>'] = actions.delete_buffer,
-              },
-            },
           },
         },
         extensions = {
@@ -94,6 +50,7 @@ return {
 
       -- Load extensions
       telescope.load_extension 'fzf'
+      telescope.load_extension 'ui-select'
     end,
     init = function()
       local builtin = require 'telescope.builtin'
