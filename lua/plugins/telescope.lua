@@ -22,7 +22,6 @@ return {
     },
     config = function()
       local telescope = require 'telescope'
-      local actions = require 'telescope.actions'
 
       telescope.setup {
         pickers = {
@@ -99,7 +98,7 @@ return {
         builtin.oldfiles()
       end, { desc = 'Telescope: Recent Files' })
 
-      vim.keymap.set('n', '<leader>fw', function()
+      vim.keymap.set({ 'n', 'v' }, '<leader>fw', function()
         builtin.grep_string()
       end, { desc = 'Telescope: Grep Word Under Cursor' })
 
