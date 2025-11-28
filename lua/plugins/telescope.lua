@@ -18,6 +18,7 @@ return {
           }
         end,
       },
+      { 'nvim-telescope/telescope-ui-select.nvim' },
     },
     config = function()
       local telescope = require 'telescope'
@@ -48,6 +49,7 @@ return {
 
       -- Load extensions
       telescope.load_extension 'fzf'
+      telescope.load_extension 'ui-select'
     end,
     init = function()
       local builtin = require 'telescope.builtin'
