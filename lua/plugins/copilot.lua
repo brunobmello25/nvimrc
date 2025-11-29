@@ -16,7 +16,6 @@ return {
         },
         filetypes = {
           ['*'] = true,
-          odin = false,
         },
       }
 
