@@ -8,6 +8,7 @@ return {
       {
         'nvim-telescope/telescope-fzf-native.nvim',
         build = 'make',
+        cond = vim.fn.has 'win32' == 0,
       },
       {
         'folke/todo-comments.nvim',
@@ -47,8 +48,9 @@ return {
         },
       }
 
-      -- Load extensions
-      telescope.load_extension 'fzf'
+      if vim.fn.has 'win32' == 0 then
+        telescope.load_extension 'fzf'
+      end
       telescope.load_extension 'ui-select'
     end,
     init = function()
