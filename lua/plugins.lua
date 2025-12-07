@@ -23,6 +23,7 @@ require('lazy').setup({
   { 'HawkinsT/pathfinder.nvim' },
   require 'plugins.no-neck-pain',
 
+  require 'plugins.compile-mode',
   require 'plugins.imgclip',
   require 'plugins.telescope',
   -- require 'plugins.fzf', -- Replaced with telescope
