@@ -1,6 +1,9 @@
 return {
-  'ej-shafran/compile-mode.nvim',
-  version = '^5.0.0',
+  -- 'ej-shafran/compile-mode.nvim',
+  'brunobmello25/compile-mode.nvim',
+  -- dir = '~/dev/personal/compile-mode.nvim',
+
+  -- version = '^5.0.0',
   -- you can just use the latest version:
   -- branch = "latest",
   -- or the most up-to-date updates:
@@ -24,6 +27,7 @@ return {
       -- to make `:Compile` replace special characters (e.g. `%`) in
       -- the command (and behave more like `:!`), add:
       -- bang_expansion = true,
+      use_circular_error_navigation = true,
     }
 
     vim.keymap.set('n', '[c', '<cmd>PrevError<CR>', { desc = 'Go to previous compilation error' })
