@@ -26,6 +26,7 @@ require('lazy').setup({
   require 'plugins.compile-mode',
   require 'plugins.imgclip',
   require 'plugins.telescope',
+  require 'plugins.snacks',
   -- require 'plugins.fzf', -- Replaced with telescope
   require 'plugins.persist-quickfix',
   require 'plugins.csv',

@@ -6,12 +6,9 @@ return {
     ---@type snacks.Config
     opts = {
       image = {
-        doc = {
-
-          max_width = 30,
-          max_height = 30,
-          inline = false,
-          float = false,
+        backend = 'kitty',
+        integrations = {
+          markdown = { enabled = true },
         },
       },
       terminal = {},
