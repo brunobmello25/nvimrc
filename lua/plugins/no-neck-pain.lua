@@ -6,6 +6,7 @@ return {
       { '<leader>nn', '<cmd>NoNeckPain<cr>', desc = 'Toggle No Neck Pain' },
     },
     opts = {
+      width = 140,
       buffers = {
         scratchPad = {
           -- set to `false` to
