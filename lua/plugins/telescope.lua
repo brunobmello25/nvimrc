@@ -19,7 +19,6 @@ return {
           }
         end,
       },
-      { 'nvim-telescope/telescope-ui-select.nvim' },
     },
     config = function()
       local telescope = require 'telescope'
@@ -46,12 +45,18 @@ return {
             case_mode = 'smart_case',
           },
         },
+        defaults = {
+          results_title = false,
+          layout_config = {
+            prompt_position = 'top',
+          },
+          sorting_strategy = 'ascending',
+        },
       }
 
       if vim.fn.has 'win32' == 0 then
         telescope.load_extension 'fzf'
       end
-      telescope.load_extension 'ui-select'
     end,
     init = function()
       local builtin = require 'telescope.builtin'

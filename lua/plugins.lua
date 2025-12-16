@@ -27,7 +27,7 @@ require('lazy').setup({
   require 'plugins.imgclip',
   require 'plugins.telescope',
   require 'plugins.snacks',
-  -- require 'plugins.fzf', -- Replaced with telescope
+  require 'plugins.fzf', -- Replaced with telescope, using just for ui select
   require 'plugins.persist-quickfix',
   require 'plugins.csv',
   require 'plugins.comment', -- "gc" to comment visual regions/lines

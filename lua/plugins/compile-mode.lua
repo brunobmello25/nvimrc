@@ -8,6 +8,7 @@ return {
   -- branch = "latest",
   -- or the most up-to-date updates:
   -- branch = "nightly",
+  -- branch = 'fix-dap-repl-issue',
   dependencies = {
     'nvim-lua/plenary.nvim',
     -- if you want to enable coloring of ANSI escape codes in
