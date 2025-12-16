@@ -47,10 +47,6 @@ return {
         },
         defaults = {
           results_title = false,
-          layout_config = {
-            prompt_position = 'top',
-          },
-          sorting_strategy = 'ascending',
         },
       }
 
