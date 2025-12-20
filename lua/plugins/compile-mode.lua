@@ -3,12 +3,12 @@ return {
   -- 'brunobmello25/compile-mode.nvim',
   -- dir = '~/dev/personal/compile-mode.nvim',
 
-  -- version = '^5.0.0',
+  version = '^5.0.0',
   -- you can just use the latest version:
   -- branch = "latest",
   -- or the most up-to-date updates:
   -- branch = "nightly",
-  branch = 'fix-dap-repl-issue',
+  -- branch = 'fix-dap-repl-issue',
   dependencies = {
     'nvim-lua/plenary.nvim',
     -- if you want to enable coloring of ANSI escape codes in
