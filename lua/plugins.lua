@@ -21,8 +21,9 @@ require('lazy').setup({
   { 'chentoast/marks.nvim', event = 'VeryLazy', opts = {} },
 
   { 'HawkinsT/pathfinder.nvim' },
-  require 'plugins.no-neck-pain',
 
+  require 'plugins.agentic',
+  require 'plugins.no-neck-pain',
   require 'plugins.compile-mode',
   require 'plugins.imgclip',
   require 'plugins.telescope',
