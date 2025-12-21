@@ -30,7 +30,7 @@ return {
       function()
         require('agentic').new_session()
       end,
-      mode = { 'n', 'v', 'i' },
+      mode = { 'n', 'v' },
       desc = 'New Agentic Session',
     },
   },
