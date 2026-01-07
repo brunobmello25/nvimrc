@@ -4,7 +4,8 @@ return {
 
   opts = {
     -- Available by default: "claude-acp" | "gemini-acp" | "codex-acp" | "opencode-acp"
-    provider = 'opencode-acp', -- setting the name here is all you need to get started
+    -- provider = 'opencode-acp', -- setting the name here is all you need to get started
+    provider = 'claude-acp',
   },
   keys = {
     {
