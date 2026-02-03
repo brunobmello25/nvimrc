@@ -22,6 +22,13 @@ require('lazy').setup({
 
   { 'HawkinsT/pathfinder.nvim' },
 
+  {
+    'Kicamon/markdown-table-mode.nvim',
+    config = function()
+      require('markdown-table-mode').setup()
+    end,
+  },
+
   require 'plugins.agentic',
   require 'plugins.no-neck-pain',
   require 'plugins.compile-mode',
