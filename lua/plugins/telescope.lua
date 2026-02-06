@@ -78,7 +78,14 @@ return {
         builtin.live_grep()
       end, { desc = 'Telescope: Live Grep' })
 
-      vim.keymap.set('n', '<leader>ft', ':TodoTelescope<CR>', { desc = 'Telescope: Todo Comments' })
+      vim.keymap.set('n', '<leader>ft', function()
+        builtin.grep_string({
+          search = [[^\s*(class|interface|type|struct|enum|typedef)\s+]],
+          use_regex = true,
+        })
+      end, { desc = 'Telescope: Find Types' })
+
+      vim.keymap.set('n', '<leader>fT', ':TodoTelescope<CR>', { desc = 'Telescope: Todo Comments' })
 
       vim.keymap.set('n', '<leader>fh', function()
         builtin.help_tags()
