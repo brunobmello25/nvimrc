@@ -80,7 +80,7 @@ return {
 
       vim.keymap.set('n', '<leader>ft', function()
         builtin.grep_string({
-          search = [[^\s*(class|interface|type|struct|enum|typedef)\s+]],
+          search = [[^\s*((class|interface|type|struct|enum|typedef)\s+|\w+\s*::\s*(struct|enum|union|bit_set|distinct))]]      ,
           use_regex = true,
         })
       end, { desc = 'Telescope: Find Types' })
