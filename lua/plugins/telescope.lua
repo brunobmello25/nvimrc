@@ -63,7 +63,7 @@ return {
       end, { desc = 'Telescope: Find Files' })
 
       vim.keymap.set('n', '<leader>fF', function()
-        builtin.find_files { hidden = true }
+        builtin.find_files { hidden = true, no_ignore = true }
       end, { desc = 'Telescope: Find Files (Hidden)' })
 
       vim.keymap.set('n', '<leader>fb', function()
@@ -79,10 +79,10 @@ return {
       end, { desc = 'Telescope: Live Grep' })
 
       vim.keymap.set('n', '<leader>ft', function()
-        builtin.grep_string({
-          search = [[^\s*((class|interface|type|struct|enum|typedef)\s+|\w+\s*::\s*(struct|enum|union|bit_set|distinct))]]      ,
+        builtin.grep_string {
+          search = [[^\s*((class|interface|type|struct|enum|typedef)\s+|\w+\s*::\s*(struct|enum|union|bit_set|distinct))]],
           use_regex = true,
-        })
+        }
       end, { desc = 'Telescope: Find Types' })
 
       vim.keymap.set('n', '<leader>fT', ':TodoTelescope<CR>', { desc = 'Telescope: Todo Comments' })
@@ -122,3 +122,4 @@ return {
     end,
   },
 }
+
