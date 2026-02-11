@@ -36,6 +36,10 @@ return {
       },
     },
     init = function()
+      vim.api.nvim_create_user_command('FormatDocument', function()
+        require('conform').format()
+      end, {})
+
       vim.api.nvim_create_user_command('ConformFormat', function()
         require('conform').format()
       end, {})
