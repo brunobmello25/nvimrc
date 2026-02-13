@@ -10,7 +10,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('lsp-attach', { clear = true }),
   callback = function(event)
     local client = vim.lsp.get_client_by_id(event.data.client_id)
-
     require('plugins.config.lsp.on_attach').on_attach(client, event.buf)
   end,
 })
@@ -88,3 +87,23 @@ require('mason-lspconfig').setup {
 
 require 'plugins.config.lsp.languages.gdscript'
 require 'plugins.config.lsp.languages.swiprolog'
+
+-- Override ols config to skip fugitive buffers
+-- This is necessary because ols config comes from nvim-lspconfig runtime files
+-- which have higher priority than our global config
+local ols_config = vim.lsp.config.ols or {}
+local original_ols_root_dir = ols_config.root_dir
+ols_config.root_dir = function(bufnr, on_dir)
+  local bufname = vim.api.nvim_buf_get_name(bufnr)
+  -- Skip fugitive and other special URI scheme buffers
+  if bufname:match('^fugitive://') or bufname:match('^%w+://') then
+    return -- Don't call on_dir(), which prevents LSP activation
+  end
+  -- Call original root_dir for normal files
+  if original_ols_root_dir then
+    original_ols_root_dir(bufnr, on_dir)
+  else
+    on_dir(vim.fn.getcwd())
+  end
+end
+vim.lsp.config.ols = ols_config
