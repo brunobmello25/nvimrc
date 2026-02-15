@@ -29,10 +29,8 @@ require('lazy').setup({
     end,
   },
 
-  require 'plugins.agentic',
   require 'plugins.no-neck-pain',
   require 'plugins.compile-mode',
-  require 'plugins.imgclip',
   require 'plugins.telescope',
   require 'plugins.snacks',
   require 'plugins.fzf', -- Replaced with telescope, using just for ui select
@@ -49,14 +47,12 @@ require('lazy').setup({
   require 'plugins.surround', -- change surround objects (quotes, brackets etc)
   require 'plugins.treesitter',
   require 'plugins.grapple', -- "favorite" file navigation
-  require 'plugins.autopairs', -- auto write closing brackets, quotes etc
   require 'plugins.autotags', -- autoclose tags like html, xml etc
   require 'plugins.debug', -- debug config
   require 'plugins.lint', -- lint config
   require 'plugins.smartsplits', -- better handling of vertical and horizontal splits, and tmux integration
   require 'plugins.oil', -- my file manager of choice
   require 'plugins.zenmode', -- I use this to be able to maximize a specific buffer
-  require 'plugins.gitgraph', -- git graph
   require 'plugins.tailwind', -- tailwind css
   require 'plugins.copilot', -- github copilot
 }, {
