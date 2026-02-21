@@ -25,8 +25,20 @@ local themes = {
       vim.api.nvim_set_hl(0, 'TSComment', { fg = '#808080', bg = 'NONE' })
     end,
   },
+  meh = {
+    source = 'davidosomething/vim-colors-meh',
+    cmd_name = 'meh',
+  },
+  silentium = {
+    source = 'silentium-theme/silentium.nvim',
+    cmd_name = 'silentium',
+    before_init = function()
+      local silentium = require 'silentium'
+      silentium.setup { accent = silentium.accents.blue }
+    end,
+  },
 }
-local active_theme = 'moonfly'
+local active_theme = 'silentium'
 
 local active = themes[active_theme]
 
