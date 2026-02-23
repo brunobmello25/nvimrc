@@ -1,7 +1,7 @@
 require('lazy').setup({
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
 
-  -- { 'romainl/vim-cool' }, -- clear search highlight after cursor movement
+  { 'romainl/vim-cool' }, -- clear search highlight after cursor movement
 
   {
     'kevinhwang91/nvim-bqf',
