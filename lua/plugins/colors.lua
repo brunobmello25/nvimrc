@@ -15,16 +15,6 @@ local themes = {
       vim.g.moonflyTransparent = true
     end,
   },
-  base16 = {
-    source = 'RRethy/base16-nvim',
-    cmd_name = 'base16-black-metal-gorgoroth',
-    setup_highlights = function()
-      vim.api.nvim_set_hl(0, 'DiffAdded', { fg = '#5f875f', bg = 'NONE' })
-      vim.api.nvim_set_hl(0, 'DiffRemoved', { fg = '#d75f5f', bg = 'NONE' })
-      vim.api.nvim_set_hl(0, 'Comment', { fg = '#808080', bg = 'NONE' })
-      vim.api.nvim_set_hl(0, 'TSComment', { fg = '#808080', bg = 'NONE' })
-    end,
-  },
   meh = {
     source = 'davidosomething/vim-colors-meh',
     cmd_name = 'meh',
@@ -38,7 +28,7 @@ local themes = {
     end,
   },
 }
-local active_theme = 'silentium'
+local active_theme = 'meh'
 
 local active = themes[active_theme]
 
