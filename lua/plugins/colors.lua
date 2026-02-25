@@ -43,6 +43,11 @@ local params = {
 
     vim.cmd(string.format('colorscheme %s', themes[active_theme].cmd_name))
 
+    vim.api.nvim_set_hl(0, 'DiffAdd', { bg = '#20303b' })
+    vim.api.nvim_set_hl(0, 'DiffDelete', { bg = '#37222c' })
+    vim.api.nvim_set_hl(0, 'DiffChange', { bg = '#1f2231' })
+    vim.api.nvim_set_hl(0, 'DiffText', { bg = '#394b70' })
+
     if themes[active_theme].setup_highlights then
       themes[active_theme].setup_highlights()
     end
