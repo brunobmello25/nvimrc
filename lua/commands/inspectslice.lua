@@ -1,5 +1,16 @@
-local function parse_gdb_array(result)
-  local inner = result:match('%b{}'):sub(2, -2)
+local function pad_hex(token, width)
+  return (token:gsub('0x(%x+)', function(h)
+    return string.format('0x%0' .. width .. 'x', tonumber(h, 16))
+  end))
+end
+
+local function parse_gdb_array(result, pad)
+  local inner = result:match '%b{}'
+  if not inner then
+    return { 'Error: ' .. result }
+  end
+  inner = inner:sub(2, -2)
+
   local lines = {}
   local idx = 0
 
@@ -27,16 +38,20 @@ local function parse_gdb_array(result)
     table.insert(tokens, current:match '^%s*(.-)%s*$')
   end
 
+  local function process(token)
+    return pad and pad_hex(token, pad) or token
+  end
+
   for _, token in ipairs(tokens) do
     local val, rep = token:match '^(.+)%s+<repeats%s+(%d+)%s+times>'
     if val and rep then
       val = val:match '^%s*(.-)%s*$'
       for _ = 1, tonumber(rep) do
-        table.insert(lines, string.format('[%d] %s', idx, val))
+        table.insert(lines, string.format('[%d] %s', idx, process(val)))
         idx = idx + 1
       end
     elseif token ~= '' then
-      table.insert(lines, string.format('[%d] %s', idx, token))
+      table.insert(lines, string.format('[%d] %s', idx, process(token)))
       idx = idx + 1
     end
   end
@@ -49,6 +64,8 @@ vim.api.nvim_create_user_command('InspectSlice', function(opts)
   local var = args[1] or vim.fn.expand '<cword>'
   local count = tonumber(args[2]) or 20
   local fmt = args[3]
+  -- pad width: explicit arg, or default 8 for hex, or nil for others
+  local pad = args[4] and tonumber(args[4]) or (fmt == 'x' and 8 or nil)
 
   local session = require('dap').session()
   if not session then
@@ -78,7 +95,7 @@ vim.api.nvim_create_user_command('InspectSlice', function(opts)
       return
     end
 
-    local lines = parse_gdb_array(resp.result)
+    local lines = parse_gdb_array(resp.result, pad)
 
     local buf = vim.api.nvim_create_buf(false, true)
     vim.api.nvim_buf_set_lines(buf, 0, -1, false, lines)
@@ -104,5 +121,5 @@ vim.api.nvim_create_user_command('InspectSlice', function(opts)
   end)
 end, {
   nargs = '*',
-  desc = 'Inspect an Odin slice. Usage: InspectSlice <var> [count] [format: x|d|f|o|t|c]',
+  desc = 'Inspect an Odin slice. Usage: InspectSlice <var> [count] [format: x|d|f|o|t|c] [pad_width]',
 })
