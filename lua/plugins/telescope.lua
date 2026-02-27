@@ -14,6 +14,9 @@ return {
         'folke/todo-comments.nvim',
         config = function()
           require('todo-comments').setup {
+            keywords = {
+              DEBUG = { icon = ' ', color = 'hint' },
+            },
             search = { pattern = [[\b(KEYWORDS)(\([^\)]*\))?:]] },
             highlight = { pattern = [[.*<((KEYWORDS)%(\(.{-1,}\))?):]] },
           }
