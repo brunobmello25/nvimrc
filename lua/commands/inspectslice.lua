@@ -86,38 +86,44 @@ vim.api.nvim_create_user_command('InspectSlice', function(opts)
   end
 
   session:request('evaluate', {
-    expression = expr,
+    expression = string.format('set print elements %d', count),
     context = 'repl',
     frameId = frame_id,
-  }, function(err, resp)
-    if err then
-      vim.notify('Error: ' .. vim.inspect(err), vim.log.levels.ERROR)
-      return
-    end
+  }, function()
+    session:request('evaluate', {
+      expression = expr,
+      context = 'repl',
+      frameId = frame_id,
+    }, function(err, resp)
+      if err then
+        vim.notify('Error: ' .. vim.inspect(err), vim.log.levels.ERROR)
+        return
+      end
 
-    local lines = parse_gdb_array(resp.result, pad)
+      local lines = parse_gdb_array(resp.result, pad)
 
-    local buf = vim.api.nvim_create_buf(false, true)
-    vim.api.nvim_buf_set_lines(buf, 0, -1, false, lines)
-    vim.bo[buf].filetype = 'gdb'
+      local buf = vim.api.nvim_create_buf(false, true)
+      vim.api.nvim_buf_set_lines(buf, 0, -1, false, lines)
+      vim.bo[buf].filetype = 'gdb'
 
-    local width = math.floor(vim.o.columns * 0.6)
-    local height = math.min(#lines, math.floor(vim.o.lines * 0.8))
-    local title = fmt and string.format(' %s (%d elements) [/%s] ', var, count, fmt) or string.format(' %s (%d elements) ', var, count)
+      local width = math.floor(vim.o.columns * 0.6)
+      local height = math.min(#lines, math.floor(vim.o.lines * 0.8))
+      local title = fmt and string.format(' %s (%d elements) [/%s] ', var, count, fmt) or string.format(' %s (%d elements) ', var, count)
 
-    vim.api.nvim_open_win(buf, true, {
-      relative = 'editor',
-      width = width,
-      height = height,
-      col = math.floor((vim.o.columns - width) / 2),
-      row = math.floor((vim.o.lines - height) / 2),
-      style = 'minimal',
-      border = 'rounded',
-      title = title,
-      title_pos = 'center',
-    })
+      vim.api.nvim_open_win(buf, true, {
+        relative = 'editor',
+        width = width,
+        height = height,
+        col = math.floor((vim.o.columns - width) / 2),
+        row = math.floor((vim.o.lines - height) / 2),
+        style = 'minimal',
+        border = 'rounded',
+        title = title,
+        title_pos = 'center',
+      })
 
-    vim.keymap.set('n', 'q', '<cmd>close<cr>', { buffer = buf, silent = true })
+      vim.keymap.set('n', 'q', '<cmd>close<cr>', { buffer = buf, silent = true })
+    end)
   end)
 end, {
   nargs = '*',
