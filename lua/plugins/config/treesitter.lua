@@ -15,7 +15,7 @@ local opts = {
   },
   indent = {
     enable = true,
-    disable = { 'ruby' },
+    disable = { 'ruby', 'c', 'cpp' },
   },
 }
 
