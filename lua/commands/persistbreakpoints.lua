@@ -61,10 +61,10 @@ local function load_breakpoints()
   end
 end
 
-vim.api.nvim_create_autocmd('BufRead', {
-  callback = load_breakpoints,
-})
-
-vim.api.nvim_create_autocmd('VimLeavePre', {
-  callback = store_breakpoints,
-})
+-- vim.api.nvim_create_autocmd('BufRead', {
+--   callback = load_breakpoints,
+-- })
+--
+-- vim.api.nvim_create_autocmd('VimLeavePre', {
+--   callback = store_breakpoints,
+-- })
