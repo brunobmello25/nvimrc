@@ -1,4 +1,8 @@
 local themes = {
+  midnight = {
+    source = 'dasupradyumna/midnight.nvim',
+    cmd_name = 'midnight',
+  },
   cyberdream = {
     source = 'scottmckendry/cyberdream.nvim',
     cmd_name = 'cyberdream',
@@ -28,7 +32,7 @@ local themes = {
     end,
   },
 }
-local active_theme = 'meh'
+local active_theme = 'midnight'
 
 local active = themes[active_theme]
 
