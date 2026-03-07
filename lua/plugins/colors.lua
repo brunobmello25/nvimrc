@@ -31,8 +31,23 @@ local themes = {
       silentium.setup { accent = silentium.accents.blue }
     end,
   },
+  naysayer = {
+    source = 'alljokecake/naysayer-theme.nvim',
+    cmd_name = 'naysayer',
+    before_init = function()
+      require('naysayer').setup {
+        variant = 'main',
+        dark_variant = 'main',
+        bold_vert_split = false,
+        dim_nc_background = false,
+        disable_background = true,
+        disable_float_background = true,
+        disable_italics = true,
+      }
+    end,
+  },
 }
-local active_theme = 'midnight'
+local active_theme = 'naysayer'
 
 local active = themes[active_theme]
 
