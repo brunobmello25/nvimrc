@@ -31,7 +31,7 @@ return {
         cpp = { 'clang-format' },
       },
 
-      format_on_save = {
+      format_after_save = {
         lsp_fallback = true,
       },
     },

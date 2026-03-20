@@ -47,7 +47,7 @@ local themes = {
     end,
   },
 }
-local active_theme = 'naysayer'
+local active_theme = 'moonfly'
 
 local active = themes[active_theme]
 

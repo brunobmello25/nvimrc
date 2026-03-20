@@ -24,7 +24,18 @@ local servers = {
     --   return require('lspconfig.util').root_pattern '.git'(fname) or vim.fn.getcwd()
     -- end,
   },
-  ts_ls = {},
+  vtsls = {
+    settings = {
+      typescript = {
+        tsserver = {
+          maxTsServerMemory = 8192,
+        },
+      },
+      vtsls = {
+        autoUseWorkspaceTsdk = true,
+      },
+    },
+  },
   pyright = {},
   texlab = {},
   rust_analyzer = {
