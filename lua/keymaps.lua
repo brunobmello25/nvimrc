@@ -60,3 +60,12 @@ vim.keymap.set('n', '{', '<cmd>silent! execute "keepjumps norm! " . v:count1 . "
 vim.keymap.set('n', '}', '<cmd>silent! execute "keepjumps norm! " . v:count1 . "}"<CR>', { desc = 'Move to previous paragraph' })
 
 vim.keymap.set('n', '<leader>rln', '<cmd>RelativeLineNumber<CR>', { desc = 'Toggle relative line numbers' })
+
+vim.keymap.set('n', '<leader>rw', function()
+  local word = vim.fn.expand('<cword>')
+  if word == '' then
+    return
+  end
+  local keys = string.format(':%%s/%s//gc', word) .. vim.api.nvim_replace_termcodes('<Left><Left><Left>', true, false, true)
+  vim.api.nvim_feedkeys(keys, 'n', false)
+end, { desc = 'Replace word under cursor' })
