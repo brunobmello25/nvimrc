@@ -33,6 +33,8 @@ return {
             -- make lazydev completions top priority (see `:h blink.cmp`)
             score_offset = 100,
           },
+          -- prevent LSP from suppressing buffer completions (default: lsp.fallbacks = { 'buffer' })
+          lsp = { fallbacks = {} },
         },
       },
       cmdline = {
