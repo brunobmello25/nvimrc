@@ -12,7 +12,7 @@ require('mason-nvim-dap').setup {
 require 'plugins.config.debug.keymaps'
 
 dapui.setup()
-dap.listeners.after.event_initialized['dapui_config'] = dapui.open
+-- dap.listeners.after.event_initialized['dapui_config'] = dapui.open
 
 require 'plugins.config.debug.adapters.codelldb'
 
