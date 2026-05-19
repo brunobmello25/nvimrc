@@ -1,16 +1,13 @@
 vim.keymap.set('n', '<leader>dt', function()
   local dap = require 'dap'
   local dir = vim.fn.expand '%:p:h'
-  local test_binary = dir .. '/.odin_dap_test'
+  local test_binary = vim.fn.tempname() .. '_odin_dap'
 
   os.remove(test_binary)
 
   vim.fn.system {
-    'odin',
-    'test',
-    dir,
-    '-debug',
-    '-keep-executable',
+    'odin', 'test', dir,
+    '-debug', '-keep-executable',
     '-out:' .. test_binary,
   }
 
