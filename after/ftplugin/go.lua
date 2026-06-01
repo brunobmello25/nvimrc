@@ -1,5 +1,6 @@
 vim.keymap.set('n', '<leader>dt', function()
   require('dap-go').debug_test()
+  require('dapui').open()
 end, { desc = 'Debug local test' })
 
 local function highlight_go_tags()

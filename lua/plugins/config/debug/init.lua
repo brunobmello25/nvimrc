@@ -13,6 +13,7 @@ require 'plugins.config.debug.keymaps'
 
 dapui.setup()
 -- dap.listeners.after.event_initialized['dapui_config'] = dapui.open
+dap.defaults.fallback.exception_breakpoints = { 'unrecovered-panic' }
 
 require 'plugins.config.debug.adapters.codelldb'
 
