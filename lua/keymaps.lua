@@ -38,6 +38,11 @@ vim.keymap.set('x', 'p', '"_dP', { desc = 'Prevent yank when pasting' })
 -- toggle word wrap
 vim.keymap.set('n', '<leader>tw', '<cmd>set wrap!<CR>', { desc = 'Toggle wrap' })
 
+-- horizontal scroll (Ctrl+Shift+H / Ctrl+Shift+L via CSI-u from the terminal)
+vim.keymap.set('n', '<C-S-h>', '10zh', { desc = 'Scroll left' })
+vim.keymap.set('n', '<C-S-l>', '10zl', { desc = 'Scroll right' })
+vim.opt.virtualedit = 'all' -- TODO: maybe remove this
+
 -- keep cursor centered when scrolling
 vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'Scroll down' })
 vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'Scroll up' })
@@ -62,7 +67,7 @@ vim.keymap.set('n', '}', '<cmd>silent! execute "keepjumps norm! " . v:count1 . "
 vim.keymap.set('n', '<leader>rln', '<cmd>RelativeLineNumber<CR>', { desc = 'Toggle relative line numbers' })
 
 vim.keymap.set('n', '<leader>rw', function()
-  local word = vim.fn.expand('<cword>')
+  local word = vim.fn.expand '<cword>'
   if word == '' then
     return
   end
