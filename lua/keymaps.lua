@@ -41,7 +41,7 @@ vim.keymap.set('n', '<leader>tw', '<cmd>set wrap!<CR>', { desc = 'Toggle wrap' }
 -- horizontal scroll (Ctrl+Shift+H / Ctrl+Shift+L via CSI-u from the terminal)
 vim.keymap.set('n', '<C-S-h>', '10zh', { desc = 'Scroll left' })
 vim.keymap.set('n', '<C-S-l>', '10zl', { desc = 'Scroll right' })
-vim.opt.virtualedit = 'all' -- TODO: maybe remove this
+-- vim.opt.virtualedit = 'all' -- TODO: maybe remove this
 
 -- keep cursor centered when scrolling
 vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'Scroll down' })
