@@ -1,6 +1,6 @@
 return {
   {
-    'folke/flash.nvim',
+    'brunobmello25/flash.nvim',
     event = 'VeryLazy',
     ---@type Flash.Config
     opts = {
