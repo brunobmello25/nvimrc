@@ -75,6 +75,7 @@ vim.list_extend(ensure_installed, {
   'jsonlint',
   'yamllint',
   'autopep8',
+  'codelldb',
   'sql-formatter',
   'golangci-lint',
   'clang-format',
