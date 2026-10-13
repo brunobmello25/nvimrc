@@ -48,6 +48,7 @@ vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'Scroll down' })
 vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'Scroll up' })
 vim.keymap.set('n', 'gg', 'ggzz', { desc = 'Scroll up' })
 vim.keymap.set('n', 'G', 'Gzz', { desc = 'Scroll up' })
+vim.keymap.set('n', 'n', 'nzz', { desc = 'Scroll up' })
 
 -- reselect previous visual selection after indenting
 vim.keymap.set('v', '>', '>gv', { desc = 'Indent right' })
