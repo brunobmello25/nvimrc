@@ -161,6 +161,21 @@ require('lazy').setup({
         cpp = { 'clang-format' },
       },
 
+      formatters = {
+        ['clang-format'] = {
+          prepend_args = function(_, ctx)
+            local config = vim.fs.find({ '.clang-format', '_clang-format' }, {
+              path = ctx.dirname,
+              upward = true,
+            })
+            if #config > 0 then
+              return {}
+            end
+            return { '--style={BasedOnStyle: LLVM, UseTab: Always, IndentWidth: 4, TabWidth: 4}' }
+          end,
+        },
+      },
+
       format_on_save = {
         lsp_fallback = true,
       },
