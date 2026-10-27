@@ -1,37 +1,46 @@
-local opts = {
-  ensure_installed = { 'bash', 'c', 'diff', 'glsl', 'html', 'lua', 'luadoc', 'markdown', 'vim', 'vimdoc' },
-  auto_install = true,
-  incremental_selection = {
-    enable = true,
-    keymaps = {
-      init_selection = '<leader><CR>',
-      node_incremental = '<leader><CR>',
-    },
-  },
-  highlight = {
-    enable = true,
-    disable = { 'csv' },
-    additional_vim_regex_highlighting = { 'ruby' },
-  },
-  indent = {
-    enable = true,
-    disable = { 'ruby', 'c', 'cpp' },
-  },
-}
+local ensure_installed = { 'bash', 'c', 'diff', 'glsl', 'html', 'lua', 'luadoc', 'markdown', 'vim', 'vimdoc' }
 
----@diagnostic disable-next-line: redundant-parameter
-require('nvim-treesitter').setup(opts)
+local parsers = require 'nvim-treesitter.parsers'
 
--- Setup Treesitter with the options defined above
-require('nvim-treesitter.install').prefer_git = true
+local highlight_disabled = { csv = true }
+local indent_disabled = { ruby = true, c = true, cpp = true }
 
-require('nvim-treesitter.configs').setup(opts)
+require('nvim-treesitter').setup {}
+require('nvim-treesitter').install(ensure_installed)
 
--- TODO: see if I want to keep this new fold settings
--- vim.opt.foldenable = false
--- vim.opt.foldlevel = 99
--- vim.opt.foldmethod = 'expr'
--- vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
+vim.api.nvim_create_autocmd('FileType', {
+  group = vim.api.nvim_create_augroup('treesitter', { clear = true }),
+  callback = function(args)
+    local filetype = vim.bo[args.buf].filetype
+    local lang = vim.treesitter.language.get_lang(filetype) or filetype
+
+    local has_parser = pcall(vim.treesitter.language.add, lang)
+    if not has_parser then
+      if parsers[lang] then
+        require('nvim-treesitter').install { lang }
+      end
+      return
+    end
+
+    if highlight_disabled[filetype] then
+      return
+    end
+
+    if not pcall(vim.treesitter.start, args.buf) then
+      return
+    end
+
+    -- Keep Vim regex highlighting enabled alongside treesitter for ruby.
+    if filetype == 'ruby' then
+      vim.bo[args.buf].syntax = 'ruby'
+    end
+
+    if not indent_disabled[filetype] then
+      vim.bo[args.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+    end
+  end,
+})
+
 vim.o.foldenable = true
 vim.o.foldlevel = 99
 vim.o.foldmethod = 'expr'

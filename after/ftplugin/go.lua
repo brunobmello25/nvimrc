@@ -3,9 +3,15 @@ vim.keymap.set('n', '<leader>dt', function()
   require('dapui').open()
 end, { desc = 'Debug local test' })
 
+local tag_hl_ns = vim.api.nvim_create_namespace 'go-tag-highlight'
+
 local function highlight_go_tags()
   local bufnr = vim.api.nvim_get_current_buf()
-  local parser = vim.treesitter.get_parser(bufnr, 'go')
+  vim.api.nvim_buf_clear_namespace(bufnr, tag_hl_ns, 0, -1)
+  local ok, parser = pcall(vim.treesitter.get_parser, bufnr, 'go')
+  if not ok or not parser then
+    return
+  end
   local tree = parser:parse()[1]
   local root = tree:root()
 
@@ -30,13 +36,12 @@ local function highlight_go_tags()
         if start then
           local key_end = start + #key
           -- Convert this relative position to a full buffer range
-          vim.api.nvim_buf_add_highlight(
+          vim.hl.range(
             bufnr,
-            -1, -- Your highlight namespace or -1 for new
+            tag_hl_ns,
             'Identifier', -- Assume this or create your linked group
-            start_row,
-            start_col + start - 1,
-            start_col + key_end - 1
+            { start_row, start_col + start - 1 },
+            { start_row, start_col + key_end - 1 }
           )
         end
       end

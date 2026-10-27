@@ -7,11 +7,6 @@ return {
     end,
   },
 
-  {
-    'nvim-treesitter/playground',
-    dependencies = { 'nvim-treesitter/nvim-treesitter' },
-  },
-
   { 'nvim-treesitter/nvim-treesitter-context', opts = {
     max_lines = 3,
   } },

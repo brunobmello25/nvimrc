@@ -32,7 +32,7 @@ local function jump_to_file_from_output()
   for _, win in ipairs(vim.api.nvim_list_wins()) do
     if win ~= current_win then
       local buf = vim.api.nvim_win_get_buf(win)
-      local buftype = vim.api.nvim_buf_get_option(buf, 'buftype')
+      local buftype = vim.bo[buf].buftype
       -- Prefer windows with normal buffers
       if buftype == '' then
         target_win = win

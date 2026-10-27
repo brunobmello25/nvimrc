@@ -1,7 +1,3 @@
-vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {
-  border = 'rounded',
-})
-vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = 'rounded' })
 vim.diagnostic.config {
   float = { border = 'rounded' },
 }
@@ -11,14 +7,17 @@ local clangd_filetypes = {
   cpp = true,
 }
 
-local publish_diagnostics = vim.lsp.handlers['textDocument/publishDiagnostics']
-vim.lsp.handlers['textDocument/publishDiagnostics'] = function(err, result, ctx, config)
-  local client = ctx.client_id and vim.lsp.get_client_by_id(ctx.client_id)
-  if client and client.name == 'clangd' and ctx.bufnr and clangd_filetypes[vim.bo[ctx.bufnr].filetype] then
-    return
-  end
-  publish_diagnostics(err, result, ctx, config)
-end
+vim.lsp.config('*', {
+  handlers = {
+    ['textDocument/publishDiagnostics'] = function(err, result, ctx, config)
+      local client = ctx.client_id and vim.lsp.get_client_by_id(ctx.client_id)
+      if client and client.name == 'clangd' and ctx.bufnr and clangd_filetypes[vim.bo[ctx.bufnr].filetype] then
+        return
+      end
+      vim.lsp.handlers['textDocument/publishDiagnostics'](err, result, ctx, config)
+    end,
+  },
+})
 
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('lsp-attach', { clear = true }),

@@ -11,12 +11,15 @@ function M.on_attach(client, bufnr)
   map('gT', vim.lsp.buf.type_definition, '[g]oto [T]ype definition')
   map('<leader>rn', vim.lsp.buf.rename, '[r]e[n]ame')
   map('<leader>.', vim.lsp.buf.code_action, 'Code Action')
-  map('K', vim.lsp.buf.hover, 'Hover Documentation')
+  map('K', function()
+    vim.lsp.buf.hover { border = 'rounded' }
+  end, 'Hover Documentation')
   map('gD', vim.lsp.buf.declaration, '[g]oto [D]eclaration')
 
   if client and client.server_capabilities.inlayHintProvider and vim.lsp.inlay_hint then
     map('<leader>th', function()
-      vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled {})
+      local filter = { bufnr = bufnr }
+      vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled(filter), filter)
     end, '[T]oggle Inlay [H]ints')
   end
 end

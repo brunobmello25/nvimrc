@@ -1,12 +1,20 @@
 ---@diagnostic disable: missing-fields
 -- Diagnostic keymaps
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next [D]iagnostic message' })
+local function diagnostic_jump(count, opts)
+  vim.diagnostic.jump(vim.tbl_extend('force', { count = count, float = true }, opts or {}))
+end
+
+vim.keymap.set('n', '[d', function()
+  diagnostic_jump(-1)
+end, { desc = 'Go to previous [D]iagnostic message' })
+vim.keymap.set('n', ']d', function()
+  diagnostic_jump(1)
+end, { desc = 'Go to next [D]iagnostic message' })
 vim.keymap.set('n', '[e', function()
-  vim.diagnostic.goto_prev { severity = vim.diagnostic.severity.ERROR }
+  diagnostic_jump(-1, { severity = vim.diagnostic.severity.ERROR })
 end, { desc = 'Go to previous [E]rror message' })
 vim.keymap.set('n', ']e', function()
-  vim.diagnostic.goto_next { severity = vim.diagnostic.severity.ERROR }
+  diagnostic_jump(1, { severity = vim.diagnostic.severity.ERROR })
 end, { desc = 'Go to next [E]rror message' })
 
 -- quickfix navigation
