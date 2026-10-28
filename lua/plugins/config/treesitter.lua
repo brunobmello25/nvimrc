@@ -5,6 +5,21 @@ local parsers = require 'nvim-treesitter.parsers'
 local highlight_disabled = { csv = true }
 local indent_disabled = { ruby = true, c = true, cpp = true }
 
+if vim.fn.executable 'tree-sitter' == 0 then
+  local install_hint = table.concat({
+    'nvim-treesitter requires the tree-sitter CLI (>= 0.26.1), but `tree-sitter` was not found in PATH.',
+    'Install it from https://github.com/tree-sitter/tree-sitter/releases.',
+    'Linux x86_64 example:',
+    '  mkdir -p ~/.local/bin',
+    '  curl -fsSL https://github.com/tree-sitter/tree-sitter/releases/latest/download/tree-sitter-linux-x64.gz | gunzip -c > ~/.local/bin/tree-sitter',
+    '  chmod +x ~/.local/bin/tree-sitter',
+  }, '\n')
+
+  vim.schedule(function()
+    vim.notify(install_hint, vim.log.levels.WARN, { title = 'nvim-treesitter' })
+  end)
+end
+
 require('nvim-treesitter').setup {}
 require('nvim-treesitter').install(ensure_installed)
 
