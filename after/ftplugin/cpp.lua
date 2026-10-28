@@ -11,3 +11,5 @@ vim.api.nvim_buf_create_user_command(0, 'Ifzero', ifzero, {
   force = true,
   desc = 'Wrap lines with #if 0/#endif',
 })
+
+vim.keymap.set('v', '<leader>iz', ':Ifzero<CR>', {})
