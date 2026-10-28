@@ -67,9 +67,9 @@ local function add_next_multicursor()
   local word = vim.fn.expand '<cword>'
   local on_keyword = vim.fn.matchstr(vim.fn.getline '.', '\\%' .. vim.fn.col '.' .. 'c\\k') ~= ''
 
-  -- Preserve normal-mode <CR> behavior when not on a word.
+  -- Preserve normal-mode <C-n> behavior when not on a word.
   if word == '' or not on_keyword then
-    vim.api.nvim_feedkeys(vim.keycode '<CR>', 'n', false)
+    vim.api.nvim_feedkeys(vim.keycode '<C-n>', 'n', false)
     return
   end
 
@@ -109,7 +109,7 @@ local function add_next_multicursor()
   multicursor_state.last = next_pos
 end
 
-vim.keymap.set('n', '<C-M>', add_next_multicursor, { desc = 'Add cursor at next occurrence' })
+vim.keymap.set('n', '<C-n>', add_next_multicursor, { desc = 'Add cursor at next occurrence' })
 
 -- Double <Esc> clears all multicursors in the current buffer.
 local last_esc_at = 0
