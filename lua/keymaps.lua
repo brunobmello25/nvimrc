@@ -46,11 +46,90 @@ vim.keymap.set('x', 'p', '"_dP', { desc = 'Prevent yank when pasting' })
 -- toggle word wrap
 vim.keymap.set('n', '<leader>tw', '<cmd>set wrap!<CR>', { desc = 'Toggle wrap' })
 
+local multicursor_ns = vim.api.nvim_create_namespace 'nvim.multicursor'
+local multicursor_state = { bufnr = nil, word = nil, primary = nil, last = nil }
+
+local function multicursor_pos_key(pos)
+  return ('%d:%d'):format(pos[1], pos[2])
+end
+
+local function multicursor_pos_lt(a, b)
+  return a[1] < b[1] or (a[1] == b[1] and a[2] < b[2])
+end
+
+local function clear_multicursors()
+  vim.api.nvim_buf_clear_namespace(0, multicursor_ns, 0, -1)
+  multicursor_state = { bufnr = nil, word = nil, primary = nil, last = nil }
+end
+
+local function add_next_multicursor()
+  local buf = vim.api.nvim_get_current_buf()
+  local word = vim.fn.expand '<cword>'
+  local on_keyword = vim.fn.matchstr(vim.fn.getline '.', '\\%' .. vim.fn.col '.' .. 'c\\k') ~= ''
+
+  -- Preserve normal-mode <CR> behavior when not on a word.
+  if word == '' or not on_keyword then
+    vim.api.nvim_feedkeys(vim.keycode '<CR>', 'n', false)
+    return
+  end
+
+  local cursor = vim.api.nvim_win_get_cursor(0)
+  local primary = { cursor[1] - 1, cursor[2] }
+
+  if multicursor_state.bufnr ~= buf or multicursor_state.word ~= word or not vim.deep_equal(multicursor_state.primary, primary) then
+    multicursor_state = { bufnr = buf, word = word, primary = primary, last = nil }
+  end
+
+  local pattern = '\\V\\<' .. vim.fn.escape(word, '\\') .. '\\>'
+  local matches = vim.fn.matchbufline(buf, pattern, 1, '$')
+
+  local occupied = { [multicursor_pos_key(primary)] = true }
+  for _, mark in ipairs(vim.api.nvim_buf_get_extmarks(buf, multicursor_ns, 0, -1, {})) do
+    occupied[multicursor_pos_key { mark[2], mark[3] }] = true
+  end
+
+  local next_pos
+  for _, match in ipairs(matches) do
+    local pos = { match.lnum - 1, match.byteidx }
+    if not occupied[multicursor_pos_key(pos)] then
+      if multicursor_state.last == nil or multicursor_pos_lt(multicursor_state.last, pos) then
+        next_pos = pos
+        break
+      end
+      next_pos = next_pos or pos
+    end
+  end
+
+  if not next_pos then
+    vim.notify(('No more occurrences of %q'):format(word), vim.log.levels.INFO)
+    return
+  end
+
+  vim.api.nvim_buf_set_extmark(buf, multicursor_ns, next_pos[1], next_pos[2], {})
+  multicursor_state.last = next_pos
+end
+
+vim.keymap.set('n', '<C-M>', add_next_multicursor, { desc = 'Add cursor at next occurrence' })
+
+-- Double <Esc> clears all multicursors in the current buffer.
+local last_esc_at = 0
+vim.on_key(function(key)
+  if vim.fn.keytrans(key) == '<Esc>' then
+    local now = vim.uv.hrtime()
+    if now - last_esc_at <= 300 * 1e6 then
+      last_esc_at = 0
+      vim.schedule(clear_multicursors)
+    else
+      last_esc_at = now
+    end
+  else
+    last_esc_at = 0
+  end
+end, vim.api.nvim_create_namespace 'double-esc-clear-multicursors')
+
 -- horizontal scroll (Ctrl+Shift+H) and clear multicursors (Ctrl+Shift+L) via CSI-u from the terminal
 vim.keymap.set('n', '<C-S-h>', '10zh', { desc = 'Scroll left' })
-vim.keymap.set('n', '<C-S-l>', function()
-  vim.api.nvim_buf_clear_namespace(0, vim.api.nvim_create_namespace 'nvim.multicursor', 0, -1)
-end, { desc = 'Clear multicursors' })
+vim.keymap.set('n', '<C-S-l>', clear_multicursors, { desc = 'Clear multicursors' })
 -- vim.opt.virtualedit = 'all' -- TODO: maybe remove this
 
 -- keep cursor centered when scrolling
