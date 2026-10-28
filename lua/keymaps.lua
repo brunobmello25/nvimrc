@@ -75,28 +75,42 @@ local function add_next_multicursor()
 
   local cursor = vim.api.nvim_win_get_cursor(0)
   local primary = { cursor[1] - 1, cursor[2] }
+  local new_sequence = multicursor_state.bufnr ~= buf or multicursor_state.word ~= word or not vim.deep_equal(multicursor_state.primary, primary)
 
-  if multicursor_state.bufnr ~= buf or multicursor_state.word ~= word or not vim.deep_equal(multicursor_state.primary, primary) then
+  if new_sequence then
     multicursor_state = { bufnr = buf, word = word, primary = primary, last = nil }
   end
 
   local pattern = '\\V\\<' .. vim.fn.escape(word, '\\') .. '\\>'
   local matches = vim.fn.matchbufline(buf, pattern, 1, '$')
 
+  -- Keep every cursor at the same offset inside the word as the primary cursor.
+  local primary_word_start
+  for _, match in ipairs(matches) do
+    if match.lnum - 1 == primary[1] and match.byteidx <= primary[2] and primary[2] < match.byteidx + #word then
+      primary_word_start = { match.lnum - 1, match.byteidx }
+      break
+    end
+  end
+
+  local offset = primary_word_start and (primary[2] - primary_word_start[2]) or 0
+  if new_sequence then
+    multicursor_state.last = primary_word_start or primary
+  end
+
   local occupied = { [multicursor_pos_key(primary)] = true }
   for _, mark in ipairs(vim.api.nvim_buf_get_extmarks(buf, multicursor_ns, 0, -1, {})) do
     occupied[multicursor_pos_key { mark[2], mark[3] }] = true
   end
 
-  local next_pos
+  local next_pos, next_search_pos
   for _, match in ipairs(matches) do
-    local pos = { match.lnum - 1, match.byteidx }
-    if not occupied[multicursor_pos_key(pos)] then
-      if multicursor_state.last == nil or multicursor_pos_lt(multicursor_state.last, pos) then
-        next_pos = pos
-        break
-      end
-      next_pos = next_pos or pos
+    local search_pos = { match.lnum - 1, match.byteidx }
+    local pos = { search_pos[1], search_pos[2] + offset }
+    if not occupied[multicursor_pos_key(pos)] and multicursor_pos_lt(multicursor_state.last, search_pos) then
+      next_pos = pos
+      next_search_pos = search_pos
+      break
     end
   end
 
@@ -106,7 +120,7 @@ local function add_next_multicursor()
   end
 
   vim.api.nvim_buf_set_extmark(buf, multicursor_ns, next_pos[1], next_pos[2], {})
-  multicursor_state.last = next_pos
+  multicursor_state.last = next_search_pos
 end
 
 vim.keymap.set('n', '<C-n>', add_next_multicursor, { desc = 'Add cursor at next occurrence' })
