@@ -46,9 +46,11 @@ vim.keymap.set('x', 'p', '"_dP', { desc = 'Prevent yank when pasting' })
 -- toggle word wrap
 vim.keymap.set('n', '<leader>tw', '<cmd>set wrap!<CR>', { desc = 'Toggle wrap' })
 
--- horizontal scroll (Ctrl+Shift+H / Ctrl+Shift+L via CSI-u from the terminal)
+-- horizontal scroll (Ctrl+Shift+H) and clear multicursors (Ctrl+Shift+L) via CSI-u from the terminal
 vim.keymap.set('n', '<C-S-h>', '10zh', { desc = 'Scroll left' })
-vim.keymap.set('n', '<C-S-l>', '10zl', { desc = 'Scroll right' })
+vim.keymap.set('n', '<C-S-l>', function()
+  vim.api.nvim_buf_clear_namespace(0, vim.api.nvim_create_namespace 'nvim.multicursor', 0, -1)
+end, { desc = 'Clear multicursors' })
 -- vim.opt.virtualedit = 'all' -- TODO: maybe remove this
 
 -- keep cursor centered when scrolling
