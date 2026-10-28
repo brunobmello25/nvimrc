@@ -119,7 +119,10 @@ local function add_next_multicursor()
     return
   end
 
-  vim.api.nvim_buf_set_extmark(buf, multicursor_ns, next_pos[1], next_pos[2], {})
+  -- Move focus to the newest cursor, keeping the old primary as a multicursor.
+  vim.api.nvim_buf_set_extmark(buf, multicursor_ns, primary[1], primary[2], {})
+  vim.api.nvim_win_set_cursor(0, { next_pos[1] + 1, next_pos[2] })
+  multicursor_state.primary = next_pos
   multicursor_state.last = next_search_pos
 end
 
