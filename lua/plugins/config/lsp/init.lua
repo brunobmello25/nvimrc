@@ -92,7 +92,7 @@ vim.list_extend(ensure_installed, {
   'codelldb',
   'sql-formatter',
   'golangci-lint',
-  'clang-format',
+  -- 'clang-format',
   'markdownlint',
 })
 
@@ -122,7 +122,7 @@ local original_ols_root_dir = ols_config.root_dir
 ols_config.root_dir = function(bufnr, on_dir)
   local bufname = vim.api.nvim_buf_get_name(bufnr)
   -- Skip fugitive and other special URI scheme buffers
-  if bufname:match('^fugitive://') or bufname:match('^%w+://') then
+  if bufname:match '^fugitive://' or bufname:match '^%w+://' then
     return -- Don't call on_dir(), which prevents LSP activation
   end
   -- Call original root_dir for normal files
