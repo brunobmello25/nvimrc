@@ -27,28 +27,32 @@ return {
         gdscript = { 'gdformat' },
         markdown = { 'markdownlint' },
         sql = { 'sql_formatter' },
-        c = { 'clang-format' },
-        cpp = { 'clang-format' },
+        -- c = { 'clang-format' },
+        -- cpp = { 'clang-format' },
       },
 
-      formatters = {
-        ['clang-format'] = {
-          prepend_args = function(_, ctx)
-            local config = vim.fs.find({ '.clang-format', '_clang-format' }, {
-              path = ctx.dirname,
-              upward = true,
-            })
-            if #config > 0 then
-              return {}
-            end
-            return { '--style={BasedOnStyle: LLVM, UseTab: Always, IndentWidth: 4, TabWidth: 4}' }
-          end,
-        },
-      },
+      -- formatters = {
+      --   ['clang-format'] = {
+      --     prepend_args = function(_, ctx)
+      --       local config = vim.fs.find({ '.clang-format', '_clang-format' }, {
+      --         path = ctx.dirname,
+      --         upward = true,
+      --       })
+      --       if #config > 0 then
+      --         return {}
+      --       end
+      --       return { '--style={BasedOnStyle: LLVM, UseTab: Always, IndentWidth: 4, TabWidth: 4}' }
+      --     end,
+      --   },
+      -- },
 
-      format_after_save = {
-        lsp_fallback = true,
-      },
+      format_after_save = function(bufnr)
+        local ft = vim.bo[bufnr].filetype
+        if ft == 'c' or ft == 'cpp' then
+          return nil
+        end
+        return { lsp_format = 'fallback' }
+      end,
     },
     init = function()
       vim.api.nvim_create_user_command('FormatDocument', function()
