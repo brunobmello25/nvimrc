@@ -57,7 +57,6 @@ local servers = {
       },
     },
   },
-  tailwindcss = {},
   clangd = {},
   ols = {},
   lua_ls = {
