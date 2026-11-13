@@ -53,7 +53,6 @@ require('lazy').setup({
   require 'plugins.smartsplits', -- better handling of vertical and horizontal splits, and tmux integration
   require 'plugins.oil', -- my file manager of choice
   require 'plugins.zenmode', -- I use this to be able to maximize a specific buffer
-  require 'plugins.tailwind', -- tailwind css
   require 'plugins.copilot', -- github copilot
 }, {
   change_detection = {

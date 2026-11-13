@@ -1,6 +1,6 @@
 return {
   {
-    'mrjones2014/smart-splits.nvim',
+    'smart-splits-nvim/smart-splits.nvim',
     config = function()
       require('smart-splits').setup {}
 
