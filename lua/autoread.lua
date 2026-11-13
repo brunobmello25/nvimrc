@@ -3,7 +3,12 @@ vim.opt.autoread = true
 
 -- Check for file changes when entering a buffer, gaining focus, or being idle
 vim.api.nvim_create_autocmd({ 'FocusGained', 'BufEnter', 'CursorHold', 'CursorHoldI' }, {
-  command = 'checktime',
+  callback = function()
+    if vim.fn.getcmdwintype() ~= '' then
+      return
+    end
+    vim.cmd 'checktime'
+  end,
   desc = 'Check for external file changes',
 })
 
