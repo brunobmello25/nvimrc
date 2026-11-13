@@ -3,10 +3,17 @@ vim.keymap.set('n', '<leader>dt', function()
   require('dapui').open()
 end, { desc = 'Debug local test' })
 
+local tag_highlight_ns = vim.api.nvim_create_namespace 'go_struct_tags'
+
 local function highlight_go_tags()
   local bufnr = vim.api.nvim_get_current_buf()
-  local parser = vim.treesitter.get_parser(bufnr, 'go')
-  local tree = parser:parse()[1]
+  -- the parser may not be installed yet: nvim-treesitter installs it
+  -- asynchronously on the first FileType event
+  local ok, parser = pcall(vim.treesitter.get_parser, bufnr, 'go')
+  local tree = ok and parser and parser:parse()[1]
+  if not tree then
+    return
+  end
   local root = tree:root()
 
   local queryContent = [[
@@ -30,13 +37,12 @@ local function highlight_go_tags()
         if start then
           local key_end = start + #key
           -- Convert this relative position to a full buffer range
-          vim.api.nvim_buf_add_highlight(
+          vim.hl.range(
             bufnr,
-            -1, -- Your highlight namespace or -1 for new
+            tag_highlight_ns,
             'Identifier', -- Assume this or create your linked group
-            start_row,
-            start_col + start - 1,
-            start_col + key_end - 1
+            { start_row, start_col + start - 1 },
+            { start_row, start_col + key_end - 1 }
           )
         end
       end
