@@ -4,7 +4,7 @@ return {
     'saghen/blink.cmp',
     dependencies = { 'folke/lazydev.nvim', 'L3MON4D3/LuaSnip', version = 'v2.*' },
 
-    version = 'v0.*',
+    version = 'v1.*',
     ---@module 'blink.cmp'
     ---@type blink.cmp.Config
     opts = {
