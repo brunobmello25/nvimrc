@@ -1,7 +1,5 @@
-vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {
-  border = 'rounded',
-})
-vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = 'rounded' })
+-- Floating window borders (hover, signature help, diagnostics) come from the
+-- global 'winborder' option, see lua/options.lua.
 vim.diagnostic.config {
   float = { border = 'rounded' },
 }
@@ -98,18 +96,17 @@ vim.list_extend(ensure_installed, {
 
 require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
----@diagnostic disable-next-line: missing-fields
-require('mason-lspconfig').setup {
-  handlers = {
-    function(server_name)
-      local server = servers[server_name] or {}
-      server.capabilities = require('blink.cmp').get_lsp_capabilities(server.capabilities or {})
+-- mason-lspconfig 2.x removed the `handlers` option: configure every server
+-- explicitly with vim.lsp.config + vim.lsp.enable instead.
+require('mason-lspconfig').setup { automatic_enable = false }
 
-      vim.lsp.config[server_name] = server
-      vim.lsp.enable(server_name)
-    end,
-  },
-}
+local capabilities = require('blink.cmp').get_lsp_capabilities()
+
+for server_name, server in pairs(servers) do
+  server.capabilities = vim.tbl_deep_extend('force', server.capabilities or {}, capabilities)
+  vim.lsp.config(server_name, server)
+  vim.lsp.enable(server_name)
+end
 
 require 'plugins.config.lsp.languages.gdscript'
 require 'plugins.config.lsp.languages.swiprolog'
@@ -119,6 +116,7 @@ require 'plugins.config.lsp.languages.swiprolog'
 -- which have higher priority than our global config
 local ols_config = vim.lsp.config.ols or {}
 local original_ols_root_dir = ols_config.root_dir
+local ols_root_markers = ols_config.root_markers
 ols_config.root_dir = function(bufnr, on_dir)
   local bufname = vim.api.nvim_buf_get_name(bufnr)
   -- Skip fugitive and other special URI scheme buffers
@@ -128,6 +126,8 @@ ols_config.root_dir = function(bufnr, on_dir)
   -- Call original root_dir for normal files
   if original_ols_root_dir then
     original_ols_root_dir(bufnr, on_dir)
+  elseif ols_root_markers and #ols_root_markers > 0 then
+    on_dir(vim.fs.root(bufnr, ols_root_markers))
   else
     on_dir(vim.fn.getcwd())
   end
