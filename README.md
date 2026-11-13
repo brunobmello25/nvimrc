@@ -24,7 +24,13 @@ You can use `:Keymaps` to see all the keymaps, but the most important ones are:
 
 # Requirements
 
+- [Neovim](https://neovim.io) 0.12+ (tested on 0.12.6)
+- [tree-sitter CLI](https://tree-sitter.github.io/tree-sitter/) 0.26+ — the `main` branch of nvim-treesitter needs the CLI on `PATH` to download and compile parsers
 - Ripgrep
 - NodeJS
 - Python
 - Golang
+
+If you manage Neovim with [mise](https://mise.jdx.dev), install the tree-sitter CLI alongside it:
+
+    mise use -g tree-sitter@0.27.2
