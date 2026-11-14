@@ -46,11 +46,6 @@ vim.keymap.set('x', '<leader><BS>', function()
   vim.treesitter.select 'child'
 end, { desc = 'Treesitter: shrink selection' })
 
--- TODO: see if I want to keep this new fold settings
--- vim.opt.foldenable = false
--- vim.opt.foldlevel = 99
--- vim.opt.foldmethod = 'expr'
--- vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
 vim.o.foldenable = true
 vim.o.foldlevel = 99
 vim.o.foldmethod = 'expr'
