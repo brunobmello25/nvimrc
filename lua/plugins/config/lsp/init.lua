@@ -27,15 +27,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 })
 
 local servers = {
-  zls = {},
   gopls = {},
-  omnisharp = {
-    -- TODO: uncomment this if we have trouble setting up omnisharp
-    -- cmd = { 'dotnet', vim.fn.expand '$HOME/.local/share/nvim/mason/packages/omnisharp/OmniSharp.dll' },
-    -- root_dir = function(fname)
-    --   return require('lspconfig.util').root_pattern '.git'(fname) or vim.fn.getcwd()
-    -- end,
-  },
   vtsls = {
     settings = {
       typescript = {
@@ -49,14 +41,6 @@ local servers = {
     },
   },
   pyright = {},
-  texlab = {},
-  rust_analyzer = {
-    settings = {
-      cargo = {
-        targetDir = vim.fn.expand '$HOME/.cache/rust-analyzer-target',
-      },
-    },
-  },
   clangd = {},
   ols = {},
   lua_ls = {
@@ -82,14 +66,12 @@ local ensure_installed = vim.tbl_keys(servers or {})
 vim.list_extend(ensure_installed, {
   'stylua',
   'prettier',
-  'gdtoolkit',
   'jsonlint',
   'yamllint',
   'autopep8',
   'codelldb',
   'sql-formatter',
   'golangci-lint',
-  -- 'clang-format',
   'markdownlint',
 })
 
