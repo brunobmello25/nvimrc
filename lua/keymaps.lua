@@ -2,25 +2,28 @@
 -- Diagnostic keymaps
 -- vim.diagnostic.goto_prev/goto_next are deprecated since 0.11, use jump()
 local function diagnostic_jump(count, opts)
+  opts = vim.tbl_extend('force', {
+    count = count,
+    on_jump = function(diagnostic, bufnr)
+      if not diagnostic then
+        return
+      end
+      vim.diagnostic.open_float {
+        bufnr = bufnr,
+        scope = 'cursor',
+        focus = false,
+      }
+    end,
+  }, opts or {})
   return function()
-    vim.diagnostic.jump(vim.tbl_extend('force', { count = count }, opts or {}))
+    vim.diagnostic.jump(opts)
   end
 end
 
 vim.keymap.set('n', '[d', diagnostic_jump(-1), { desc = 'Go to previous [D]iagnostic message' })
 vim.keymap.set('n', ']d', diagnostic_jump(1), { desc = 'Go to next [D]iagnostic message' })
-vim.keymap.set(
-  'n',
-  '[e',
-  diagnostic_jump(-1, { severity = vim.diagnostic.severity.ERROR }),
-  { desc = 'Go to previous [E]rror message' }
-)
-vim.keymap.set(
-  'n',
-  ']e',
-  diagnostic_jump(1, { severity = vim.diagnostic.severity.ERROR }),
-  { desc = 'Go to next [E]rror message' }
-)
+vim.keymap.set('n', '[e', diagnostic_jump(-1, { severity = vim.diagnostic.severity.ERROR }), { desc = 'Go to previous [E]rror message' })
+vim.keymap.set('n', ']e', diagnostic_jump(1, { severity = vim.diagnostic.severity.ERROR }), { desc = 'Go to next [E]rror message' })
 
 -- quickfix navigation
 vim.keymap.set('n', '[q', '<cmd>cprevious<CR>', { desc = 'Previous quickfix item' })
